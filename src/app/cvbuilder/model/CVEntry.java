@@ -15,13 +15,11 @@ public abstract class CVEntry {
 
     public abstract void display();
 
-    // Getters
     public String getTitle() { return title; }
     public String getStartDate() { return startDate; }
     public String getEndDate() { return endDate; }
     public String getDescription() { return description; }
 
-    // Setters
     public void setTitle(String title) { this.title = title; }
     public void setStartDate(String startDate) { this.startDate = startDate; }
     public void setEndDate(String endDate) { this.endDate = endDate; }
