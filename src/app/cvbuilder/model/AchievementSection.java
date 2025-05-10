@@ -33,11 +33,25 @@ public class AchievementSection implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "AchievementSection{" +
-                "achievements=" + achievements +
-                '}';
+public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("\n===== Achievements =====\n");
+
+    if (achievements == null || achievements.isEmpty()) {
+        sb.append("No achievements listed.\n");
+    } else {
+        int index = 1;
+        for (Achievement achievement : achievements) {
+            sb.append(index++)
+              .append(". ")
+              .append(achievement.toString())
+              .append("\n");
+        }
     }
+
+    sb.append("=========================\n");
+    return sb.toString();
+}
 
     @Override
     public boolean equals(Object o) {
