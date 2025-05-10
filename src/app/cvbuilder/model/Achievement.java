@@ -42,12 +42,10 @@ public class Achievement implements Serializable {
 
     @Override
     public String toString() {
-        return "Achievement{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", date='" + date + '\'' +
-                '}';
-    }
+        return "Title      : " + title + "\n" +
+               "Description: " + description + "\n" +
+               "Date       : " + date;
+    }    
 
     @Override
     public boolean equals(Object o) {

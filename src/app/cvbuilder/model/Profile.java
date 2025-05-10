@@ -4,32 +4,32 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Profile implements Serializable {
-    private String fullName;
-    private String headline;
+    private String name;
+    private String title;
     private String summary;
 
     public Profile() {}
 
-    public Profile(String fullName, String headline, String summary) {
-        this.fullName = fullName;
-        this.headline = headline;
+    public Profile(String name, String title, String summary) {
+        this.name = name;
+        this.title = title;
         this.summary = summary;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getname() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setname(String name) {
+        this.name = name;
     }
 
-    public String getHeadline() {
-        return headline;
+    public String gettitle() {
+        return title;
     }
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
+    public void settitle(String title) {
+        this.title = title;
     }
 
     public String getSummary() {
@@ -41,13 +41,15 @@ public class Profile implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Profile{" +
-                "fullName='" + fullName + '\'' +
-                ", headline='" + headline + '\'' +
-                ", summary='" + summary + '\'' +
-                '}';
-    }
+public String toString() {
+    return  "+---------------------------+\n" +
+            "|       PROFILE INFO       |\n" +
+            "+---------------------------+\n" +
+            "| Full Name : " + name + "\n" +
+            "| title  : " + title + "\n" +
+            "| Summary   : " + summary + "\n" +
+            "+---------------------------+";
+}
 
     @Override
     public boolean equals(Object o) {
@@ -56,13 +58,13 @@ public class Profile implements Serializable {
 
         Profile profile = (Profile) o;
 
-        return Objects.equals(fullName, profile.fullName) &&
-               Objects.equals(headline, profile.headline) &&
+        return Objects.equals(name, profile.name) &&
+               Objects.equals(title, profile.title) &&
                Objects.equals(summary, profile.summary);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fullName, headline, summary);
+        return Objects.hash(name, title, summary);
     }
 }
