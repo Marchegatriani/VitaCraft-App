@@ -1,14 +1,9 @@
 package app.cvbuilder.model;
 
-import java.io.Serializable;
-import java.util.Objects;
-
-public class Profile implements Serializable {
+public class Profile {
     private String name;
     private String title;
     private String summary;
-
-    public Profile() {}
 
     public Profile(String name, String title, String summary) {
         this.name = name;
@@ -16,19 +11,20 @@ public class Profile implements Serializable {
         this.summary = summary;
     }
 
-    public String getname() {
+    // Getter & Setter
+    public String getName() {
         return name;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String gettitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void settitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -39,32 +35,8 @@ public class Profile implements Serializable {
     public void setSummary(String summary) {
         this.summary = summary;
     }
-
     @Override
-public String toString() {
-    return  "+---------------------------+\n" +
-            "|       PROFILE INFO       |\n" +
-            "+---------------------------+\n" +
-            "| Full Name : " + name + "\n" +
-            "| title  : " + title + "\n" +
-            "| Summary   : " + summary + "\n" +
-            "+---------------------------+";
-}
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Profile profile = (Profile) o;
-
-        return Objects.equals(name, profile.name) &&
-               Objects.equals(title, profile.title) &&
-               Objects.equals(summary, profile.summary);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, title, summary);
+    public String toString() {
+        return name + " - " + title + "\n" + summary;
     }
 }
