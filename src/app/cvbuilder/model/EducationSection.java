@@ -1,30 +1,25 @@
 package app.cvbuilder.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class EducationSection {
-    private List<Education> educationList;
+public class EducationSection implements CVSection {
+    private List<Education> entries;
 
-    public EducationSection() {
-        this.educationList = new ArrayList<>();
+    public EducationSection(List<Education> entries) {
+        this.entries = entries;
     }
 
-    public void addEducation(Education education) {
-        educationList.add(education);
+    @Override
+    public String getSectionTitle() {
+        return "Education";
     }
 
-    public void removeEducation(Education education) {
-        educationList.remove(education);
-    }
-
-    public void displayAll() {
-        if (educationList.isEmpty()) {
-            System.out.println("No education entries available.");
-        } else {
-            for (Education education : educationList) {
-                education.display();
-            }
+    @Override
+    public String getFormattedContent() {
+        StringBuilder sb = new StringBuilder();
+        for (Education edu : entries) {
+            sb.append("- ").append(edu.formatForDisplay()).append("\n");
         }
+        return sb.toString();
     }
 }

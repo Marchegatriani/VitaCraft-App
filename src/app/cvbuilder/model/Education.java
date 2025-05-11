@@ -4,8 +4,8 @@ public class Education extends CVEntry {
     private String degree;
     private String institution;
 
-    public Education(String degree, String institution, String startDate, String endDate, String description) {
-        super(degree + " at " + institution, startDate, endDate, description); // Menetapkan title sebagai kombinasi degree dan institution
+    public Education(String degree, String institution, String start, String end) {
+        super(start, end);
         this.degree = degree;
         this.institution = institution;
     }
@@ -19,12 +19,12 @@ public class Education extends CVEntry {
     }
 
     @Override
-    public void display() {
-        System.out.println(this);
+    public String formatForDisplay() {
+        return degree + " at " + institution + " " + super.formatForDisplay();
     }
 
     @Override
     public String toString() {
-        return getTitle() + " (" + getStartDate() + " - " + getEndDate() + "): " + getDescription();
+        return formatForDisplay();
     }
 }

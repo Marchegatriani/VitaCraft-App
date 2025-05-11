@@ -1,4 +1,4 @@
-package model;
+package app.cvbuilder.model;
 
 public abstract class CVEntry {
     private String start;

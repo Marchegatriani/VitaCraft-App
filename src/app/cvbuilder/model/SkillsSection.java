@@ -1,4 +1,4 @@
-package model;
+package app.cvbuilder.model;
 
 import java.util.List;
 
