@@ -8,16 +8,14 @@ public class Contact implements Serializable {
     private String phone;
     private String address;
     private String linkedIn;
-    private String website;
 
     public Contact() {}
 
-    public Contact(String email, String phone, String address, String linkedIn, String website) {
+    public Contact(String email, String phone, String address, String linkedIn) {
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.linkedIn = linkedIn;
-        this.website = website;
     }
 
     public String getEmail() {
@@ -52,14 +50,6 @@ public class Contact implements Serializable {
         this.linkedIn = linkedIn;
     }
 
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
     @Override
     public String toString() {
         return "Contact{" +
@@ -67,7 +57,6 @@ public class Contact implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
                 ", linkedIn='" + linkedIn + '\'' +
-                ", website='" + website + '\'' +
                 '}';
     }
 
@@ -81,12 +70,11 @@ public class Contact implements Serializable {
         return Objects.equals(email, contact.email) &&
                Objects.equals(phone, contact.phone) &&
                Objects.equals(address, contact.address) &&
-               Objects.equals(linkedIn, contact.linkedIn) &&
-               Objects.equals(website, contact.website);
+               Objects.equals(linkedIn, contact.linkedIn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, phone, address, linkedIn, website);
+        return Objects.hash(email, phone, address, linkedIn);
     }
 }
