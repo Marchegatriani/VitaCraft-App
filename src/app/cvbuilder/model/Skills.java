@@ -1,18 +1,28 @@
-package app.cvbuilder.model;
+package model;
 
-public class Skills extends CVEntry {
+public class Skills {
+    private String skillName;
+    private String level;
+
     public Skills(String skillName, String level) {
-
-        super(skillName, "", "", level);
+        this.skillName = skillName;
+        this.level = level;
     }
 
-    @Override
-    public void display() {
-        System.out.println("- " + title + " (" + description + ")");
+    public String getSkillName() {
+        return skillName;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public String formatForDisplay() {
+        return skillName + " (" + level + ")";
     }
 
     @Override
     public String toString() {
-        return title + " (" + description + ")";
+        return formatForDisplay();
     }
 }
