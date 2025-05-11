@@ -1,4 +1,4 @@
-package model;
+package app.cvbuilder.model;
 
 public class OrganizationExperience extends CVEntry {
     private String role;

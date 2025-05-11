@@ -1,4 +1,5 @@
 package app.cvbuilder.model;
+
 import java.util.List;
 
 public class InternshipSection implements CVSection {
@@ -8,16 +9,17 @@ public class InternshipSection implements CVSection {
         this.entries = entries;
     }
 
-
+    @Override
     public String getSectionTitle() {
-        return "Internships";  // Judul bagian Internships
+        return "Internships";
     }
 
+    @Override
     public String getFormattedContent() {
         StringBuilder sb = new StringBuilder();
         for (Internshipp i : entries) {
-            sb.append("- ").append(i.formatForDisplay()).append("\n");  // Menambahkan setiap entri magang dalam format
+            sb.append("- ").append(i.formatForDisplay()).append("\n");
         }
-        return sb.toString();  // Mengembalikan isi dalam format yang sudah diatur
+        return sb.toString();
     }
 }

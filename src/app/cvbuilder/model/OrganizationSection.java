@@ -1,4 +1,4 @@
-package model;
+package app.cvbuilder.model;
 
 import java.util.List;
 
@@ -7,6 +7,10 @@ public class OrganizationSection implements CVSection {
 
     public OrganizationSection(List<OrganizationExperience> entries) {
         this.entries = entries;
+    }
+
+       public void addEntry(OrganizationExperience entry) {
+        this.entries.add(entry);
     }
 
     @Override
