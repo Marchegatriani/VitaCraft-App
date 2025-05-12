@@ -11,7 +11,7 @@ public class EducationSection implements CVSection {
 
     @Override
     public String getSectionTitle() {
-        return "Education";
+        return "Pendidikan \n--------------------------------------------------------";
     }
 
     @Override

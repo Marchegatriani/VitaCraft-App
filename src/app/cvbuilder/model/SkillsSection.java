@@ -11,7 +11,7 @@ public class SkillsSection implements CVSection {
 
     @Override
     public String getSectionTitle() {
-        return "Skills";
+        return "Keahlian \n--------------------------------------------------------";
     }
 
     @Override

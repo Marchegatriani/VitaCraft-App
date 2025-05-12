@@ -9,13 +9,13 @@ public class OrganizationSection implements CVSection {
         this.entries = entries;
     }
 
-       public void addEntry(OrganizationExperience entry) {
+    public void addEntry(OrganizationExperience entry) {
         this.entries.add(entry);
     }
 
     @Override
     public String getSectionTitle() {
-        return "Organizational Experience";
+        return "Pengalaman Organisasi \n--------------------------------------------------------";
     }
 
     @Override
