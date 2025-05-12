@@ -9,18 +9,9 @@ public class AchievementSection implements CVSection {
         this.entries = entries;
     }
 
-    // Getter & Setter
-    public List<Achievement> getEntries() {
-        return entries;
-    }
-
-    public void setEntries(List<Achievement> entries) {
-        this.entries = entries;
-    }
-
     @Override
     public String getSectionTitle() {
-        return "Achievements";
+        return "Prestasi \n--------------------------------------------------------";
     }
 
     @Override

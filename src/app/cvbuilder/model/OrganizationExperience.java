@@ -14,7 +14,7 @@ public class OrganizationExperience extends CVEntry {
 
     @Override
     public String formatForDisplay() {
-        return role + " at " + organization + " (" + getStart() + " - " + getEnd() + "): " + description;
+        return role + " | " + organization + " (" + getStart() + " - " + getEnd() + "): " + description;
     }
 
     @Override

@@ -1,11 +1,11 @@
 package app.cvbuilder.model;
 
-public class Internshipp extends CVEntry {
+public class Internship extends CVEntry {
     private String company;
     private String position;
     private String responsibilities;
 
-    public Internshipp(String company, String position, String start, String end, String responsibilities) {
+    public Internship(String company, String position, String start, String end, String responsibilities) {
         super(start, end);
         this.company = company;
         this.position = position;
@@ -14,7 +14,7 @@ public class Internshipp extends CVEntry {
 
     @Override
     public String formatForDisplay() {
-        return position + " at " + company + " (" + getStart() + " - " + getEnd() + "): " + responsibilities;
+        return position + " | " + company + " (" + getStart() + " - " + getEnd() + "): " + responsibilities;
     }
 
     @Override
