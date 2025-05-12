@@ -1,35 +1,31 @@
 package app.cvbuilder.model;
 
-import java.io.Serializable;
-import java.util.Objects;
-
-public class Profile implements Serializable {
-    private String fullName;
-    private String headline;
+public class Profile {
+    private String name;
+    private String title;
     private String summary;
 
-    public Profile() {}
-
-    public Profile(String fullName, String headline, String summary) {
-        this.fullName = fullName;
-        this.headline = headline;
+    public Profile(String name, String title, String summary) {
+        this.name = name;
+        this.title = title;
         this.summary = summary;
     }
 
-    public String getFullName() {
-        return fullName;
+    // Getter & Setter
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getHeadline() {
-        return headline;
+    public String getTitle() {
+        return title;
     }
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getSummary() {
@@ -39,30 +35,8 @@ public class Profile implements Serializable {
     public void setSummary(String summary) {
         this.summary = summary;
     }
-
     @Override
     public String toString() {
-        return "Profile{" +
-                "fullName='" + fullName + '\'' +
-                ", headline='" + headline + '\'' +
-                ", summary='" + summary + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Profile profile = (Profile) o;
-
-        return Objects.equals(fullName, profile.fullName) &&
-               Objects.equals(headline, profile.headline) &&
-               Objects.equals(summary, profile.summary);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(fullName, headline, summary);
+        return name + " - " + title + "\n" + summary;
     }
 }

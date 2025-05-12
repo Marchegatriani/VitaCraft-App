@@ -1,5 +1,25 @@
 package app.cvbuilder.model;
 
-public class EducationSection {
-    
+import java.util.List;
+
+public class EducationSection implements CVSection {
+    private List<Education> entries;
+
+    public EducationSection(List<Education> entries) {
+        this.entries = entries;
+    }
+
+    @Override
+    public String getSectionTitle() {
+        return "Pendidikan \n--------------------------------------------------------";
+    }
+
+    @Override
+    public String getFormattedContent() {
+        StringBuilder sb = new StringBuilder();
+        for (Education edu : entries) {
+            sb.append("- ").append(edu.formatForDisplay()).append("\n");
+        }
+        return sb.toString();
+    }
 }

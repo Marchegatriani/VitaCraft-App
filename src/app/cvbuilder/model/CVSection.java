@@ -1,5 +1,6 @@
 package app.cvbuilder.model;
 
-public class CVSection {
-    
+public interface CVSection {
+    String getSectionTitle();
+    String getFormattedContent();
 }

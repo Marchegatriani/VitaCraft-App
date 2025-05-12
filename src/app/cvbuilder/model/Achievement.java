@@ -1,21 +1,15 @@
 package app.cvbuilder.model;
 
-import java.io.Serializable;
-import java.util.Objects;
-
-public class Achievement implements Serializable {
+public class Achievement extends CVEntry {
     private String title;
     private String description;
-    private String date;
 
-    public Achievement() {}
-
-    public Achievement(String title, String description, String date) {
+    public Achievement(String title, String description, String year) {
+        super(year, year); // Tahun yang sama, bisa disesuaikan kalau perlu
         this.title = title;
         this.description = description;
-        this.date = date;
     }
-
+    // Getter & Setter
     public String getTitle() {
         return title;
     }
@@ -32,37 +26,13 @@ public class Achievement implements Serializable {
         this.description = description;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    @Override
+    public String formatForDisplay() {
+        return title + " (" + getStart() + "): " + description;
     }
 
     @Override
     public String toString() {
-        return "Achievement{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", date='" + date + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Achievement that = (Achievement) o;
-
-        return Objects.equals(title, that.title) &&
-               Objects.equals(description, that.description) &&
-               Objects.equals(date, that.date);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(title, description, date);
+        return formatForDisplay();
     }
 }
