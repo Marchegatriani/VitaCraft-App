@@ -1,6 +1,7 @@
-package app.cvbuilder.model;
+package app.model;
 
-public abstract class CVEntry {
+public class CVEntry {
+
     
     private String start;
     private String end;
