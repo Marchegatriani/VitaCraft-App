@@ -84,6 +84,7 @@ public class Main {
         List<OrganizationExperience> orgs = new ArrayList<>();
         int orgCount = InputHelper.getInt("Berapa banyak pengalaman organisasi yang ingin dimasukkan?: ");
         for (int i = 0; i < orgCount; i++) {
+            System.out.println("Organization #" + (i + 1));
             String role = InputHelper.getString("Peran: ");
             String orgName = InputHelper.getString("Nama Organisasi: ");
             String start = InputHelper.getString("Tanggal/Tahun Mulai: ");
@@ -103,19 +104,30 @@ public class Main {
         System.out.println("\n=== CURRICULLUM VITAE ===\n");
         System.out.println(profile);
         System.out.println(contact + "\n");
-        System.out.println(educationSection.getSectionTitle());
-        System.out.println(educationSection.getFormattedContent());
 
-        System.out.println(skillSection.getSectionTitle());
-        System.out.println(skillSection.getFormattedContent());
+        if (!educations.isEmpty()) {
+            System.out.println(educationSection.getSectionTitle());
+            System.out.println(educationSection.getFormattedContent());
+        }
 
-        System.out.println(internshipSection.getSectionTitle());
-        System.out.println(internshipSection.getFormattedContent());
+        if (!skills.isEmpty()) {
+            System.out.println(skillSection.getSectionTitle());
+            System.out.println(skillSection.getFormattedContent());
+        }
 
-        System.out.println(achievementSection.getSectionTitle());
-        System.out.println(achievementSection.getFormattedContent());
+        if (!internships.isEmpty()) {
+            System.out.println(internshipSection.getSectionTitle());
+            System.out.println(internshipSection.getFormattedContent());
+        }
 
-        System.out.println(organizationSection.getSectionTitle());
-        System.out.println(organizationSection.getFormattedContent());
+        if (!achievements.isEmpty()) {
+            System.out.println(achievementSection.getSectionTitle());
+            System.out.println(achievementSection.getFormattedContent());
+        }
+
+        if (!orgs.isEmpty()) {
+            System.out.println(organizationSection.getSectionTitle());
+            System.out.println(organizationSection.getFormattedContent());
+        }
     }
 }
