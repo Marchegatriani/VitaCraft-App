@@ -35,6 +35,7 @@ public class Profile {
     public void setSummary(String summary) {
         this.summary = summary;
     }
+
     @Override
     public String toString() {
         return name + " - " + title + "\n" + summary;

@@ -1,4 +1,4 @@
-package app.model;
+package app.cvbuilder.model;
 
 public class CVEntry {
 

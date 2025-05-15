@@ -9,6 +9,7 @@ public class Achievement extends CVEntry {
         this.title = title;
         this.description = description;
     }
+
     // Getter & Setter
     public String getTitle() {
         return title;

@@ -1,6 +1,6 @@
 package app.service;
 
-import app.model.CVEntry;  // Pastikan import CVEntry
+import app.cvbuilder.model.CVEntry;  // Pastikan import CVEntry
 
 public class PDFExporter {
 
