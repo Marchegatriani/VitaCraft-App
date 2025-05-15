@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
@@ -13,53 +10,59 @@
     <description>Aplikasi sederhana untuk membuat CV dalam format PDF</description>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source> <!-- Java 8 -->
-        <maven.compiler.target>1.8</maven.compiler.target> <!-- Java 8 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-
-    <dependencies>
-        <!-- Dependensi untuk iTextPDF Kernel (untuk manipulasi PDF) -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-            <version>7.2.5</version>
-        </dependency>
-        <!-- Dependensi untuk Layout (untuk menambahkan elemen layout dalam PDF) -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
-            <version>7.2.5</version>
-        </dependency>
-        <!-- Dependensi opsional untuk PDF/A jika diperlukan -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>pdfa</artifactId>
-            <version>7.2.5</version>
-        </dependency>
-    </dependencies>
-
-    <repositories>
-        <!-- Menambahkan Maven Central Repository (biasanya sudah default) -->
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>
-            <!-- Plugin Compiler untuk menentukan versi Java -->
+            <!-- Compiler Plugin untuk mengkompilasi kode Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source> <!-- Versi Java 8 -->
-                    <target>1.8</target> <!-- Versi Java 8 -->
+                    <source>1.8</source> <!-- Versi Java yang digunakan untuk menulis kode -->
+                    <target>1.8</target> <!-- Versi bytecode yang dihasilkan -->
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
 
+            <!-- Plugin untuk membuat file JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.example.Main</mainClass> <!-- Ganti dengan kelas utama -->
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin untuk mengemas semua dependensi ke dalam JAR (Uber JAR) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase> <!-- Menggunakan fase package -->
+                        <goals>
+                            <goal>shade</goal> <!-- Menghasilkan Uber JAR -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <!-- Menambahkan sumber daya (resources) -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory> <!-- Menentukan folder sumber daya -->
+            </resource>
+        </resources>
+    </build>
 </project>
