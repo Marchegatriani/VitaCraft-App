@@ -1,6 +1,6 @@
 package app.service;
 
-import app.model.CVEntry;  // Pastikan import CVEntry
+import app.cvbuilder.model.CVEntry; // Pastikan import CVEntry
 
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.Document;
@@ -13,8 +13,8 @@ public class CVBuilder {
     // Method untuk membuat dan mengekspor data CV ke dalam file PDF
     public void generateCV(String filePath, String name, String email, String summary) {
         try (PdfWriter writer = new PdfWriter(filePath);
-             PdfDocument pdf = new PdfDocument(writer);
-             Document document = new Document(pdf)) {
+                PdfDocument pdf = new PdfDocument(writer);
+                Document document = new Document(pdf)) {
 
             // Menambahkan informasi CV ke dalam PDF
             document.add(new Paragraph("Curriculum Vitae"));
