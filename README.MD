@@ -119,8 +119,6 @@ Berikut adalah pembagian tugas anggota tim dalam proyek ini:
 
 Fitur-fitur berikut akan dikerjakan secara kolaboratif oleh seluruh anggota tim:
 
-* **Pdf export**: Implementasi fitur untuk mengekspor CV ke format PDF.
-* **Cv builder**: Logika inti untuk mengumpulkan data dari berbagai bagian dan menyusunnya menjadi format CV yang lengkap.
 * **GUI**: Pengembangan antarmuka pengguna grafis untuk input data dan menampilkan hasil CV.
 
 
