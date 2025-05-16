@@ -62,75 +62,76 @@ Ikuti langkah-langkah berikut untuk membuat CV Anda menggunakan VitaCraft:
 4.  **Keluaran CV:** Setelah Anda memasukkan semua data, VitaCraft akan menampilkan CV Anda dalam format teks terstruktur di konsol.
 
     ```bash
-      John Doe
-      john.doe@example.com | 08123456789 | Makassar
+    John Doe
+    john.doe@example.com | 08123456789 | Makassar
 
-      Profil 
-      --------------------------------------------------------
-      Software Developer with 5 years of experience.
-      
-      Pendidikan
-      --------------------------------------------------------
-      - Universitas A, Teknik Informatika (2015 - 2019)
-      IPK: 3.5
-      - Universitas B, Manajemen Teknologi (2020 - 2022)
-      IPK: 3.8
-      
-      Skills
-      --------------------------------------------------------
-      - Java
-      - Python
-      - SQL
-      
-      Internship
-      --------------------------------------------------------
-      - Software Engineer di Perusahaan X (2020 - 2021): Mengembangkan aplikasi berbasis web.
-      
-      Prestasi
-      --------------------------------------------------------
-      - Penghargaan Karyawan Terbaik: Diberikan sebagai karyawan terbaik tahun 2021 (2021).
-      
-      Pengalaman Organisasi
-      --------------------------------------------------------
-      - Ketua Himpunan, Himpunan Mahasiswa Teknik ( 2018 - 2019): Mengorganisir kegiatan seminar dan workshop.
-   ```
+    Profil 
+    --------------------------------------------------------
+    Software Developer with 5 years of experience.
 
-## Berikut adalah pembagian tugas anggota tim dalam proyek ini:
+    Pendidikan
+    --------------------------------------------------------
+    - Universitas A, Teknik Informatika (2015 - 2019)
+    IPK: 3.5
+    - Universitas B, Manajemen Teknologi (2020 - 2022)
+    IPK: 3.8
 
-* **Gatri**:
-    * Main (Bertanggung jawab atas integrasi keseluruhan modul dan alur utama aplikasi)
+    Skills
+    --------------------------------------------------------
+    - Java
+    - Python
+    - SQL
 
-* **Fathir**:
-    * `Achievement`: Kelas yang merepresentasikan informasi pencapaian.
-    * `AchievementSection`: Kelas yang menangani logika dan format untuk bagian pencapaian dalam CV.
-    * `Contact`: Kelas yang merepresentasikan informasi kontak.
-    * `Profile`: Kelas yang merepresentasikan informasi profil pribadi.
+    Internship
+    --------------------------------------------------------
+    - Software Engineer di Perusahaan X (2020 - 2021): Mengembangkan aplikasi berbasis web.
 
-* **Caca**:
-    * `Education`: Kelas yang merepresentasikan informasi pendidikan.
-    * `EducationSection`: Kelas yang menangani logika dan format untuk bagian pendidikan dalam CV.
-    * `Internship`: Kelas yang merepresentasikan informasi magang.
-    * `InternshipSection`: Kelas yang menangani logika dan format untuk bagian magang dalam CV.
+    Prestasi
+    --------------------------------------------------------
+    - Penghargaan Karyawan Terbaik: Diberikan sebagai karyawan terbaik tahun 2021 (2021).
 
-* **Hanifah**:
-    * `Organization experience`: Kelas yang merepresentasikan informasi pengalaman organisasi.
-    * `OrganizationSection`: Kelas yang menangani logika dan format untuk bagian pengalaman organisasi dalam CV.
-    * `Skills`: Kelas yang merepresentasikan informasi keterampilan.
-    * `SkillsSection`: Kelas yang menangani logika dan format untuk bagian keterampilan dalam CV.
+    Pengalaman Organisasi
+    --------------------------------------------------------
+    - Ketua Himpunan, Himpunan Mahasiswa Teknik ( 2018 - 2019): Mengorganisir kegiatan seminar dan workshop.
+    ```
+    ## Pembagian Kerja Tim
 
-* **Ryan**:
-    * `CvEntry`: Kelas abstrak atau interface yang mendefinisikan struktur dasar untuk setiap entri dalam CV (misalnya, pendidikan, pengalaman kerja, dll.).
-    * `CvSection`: Kelas abstrak atau interface yang mendefinisikan struktur dasar untuk setiap bagian dalam CV (misalnya, bagian pendidikan, bagian pengalaman kerja, dll.).
-    * `Input helper`: Kelas-kelas atau fungsi-fungsi pembantu untuk memproses dan memvalidasi input pengguna dari GUI.
+    Berikut adalah pembagian tugas anggota tim dalam proyek ini:
 
-## Tanggung Jawab Bersama
+    * **Gatri**:
+        * Main (Bertanggung jawab atas integrasi keseluruhan modul dan alur utama aplikasi)
 
-Fitur-fitur berikut akan dikerjakan secara kolaboratif oleh seluruh anggota tim:
+    * **Fathir**:
+        * `Achievement`: Kelas yang merepresentasikan informasi pencapaian.
+        * `AchievementSection`: Kelas yang menangani logika dan format untuk bagian pencapaian dalam CV.
+        * `Contact`: Kelas yang merepresentasikan informasi kontak.
+        * `Profile`: Kelas yang merepresentasikan informasi profil pribadi.
 
-* **GUI**: Pengembangan antarmuka pengguna grafis untuk input data dan menampilkan hasil CV.
+    * **Caca**:
+        * `Education`: Kelas yang merepresentasikan informasi pendidikan.
+        * `EducationSection`: Kelas yang menangani logika dan format untuk bagian pendidikan dalam CV.
+        * `Internship`: Kelas yang merepresentasikan informasi magang.
+        * `InternshipSection`: Kelas yang menangani logika dan format untuk bagian magang dalam CV.
+
+    * **Hanifah**:
+        * `Organization experience`: Kelas yang merepresentasikan informasi pengalaman organisasi.
+        * `OrganizationSection`: Kelas yang menangani logika dan format untuk bagian pengalaman organisasi dalam CV.
+        * `Skills`: Kelas yang merepresentasikan informasi keterampilan.
+        * `SkillsSection`: Kelas yang menangani logika dan format untuk bagian keterampilan dalam CV.
+
+    * **Ryan**:
+        * `CvEntry`: Kelas abstrak atau interface yang mendefinisikan struktur dasar untuk setiap entri dalam CV (misalnya, pendidikan, pengalaman kerja, dll.).
+        * `CvSection`: Kelas abstrak atau interface yang mendefinisikan struktur dasar untuk setiap bagian dalam CV (misalnya, bagian pendidikan, bagian pengalaman kerja, dll.).
+        * `Input helper`: Kelas-kelas atau fungsi-fungsi pembantu untuk memproses dan memvalidasi input pengguna dari GUI.
+
+    ## Tanggung Jawab Bersama
+
+    Fitur-fitur berikut akan dikerjakan secara kolaboratif oleh seluruh anggota tim:
+
+    * **GUI**: Pengembangan antarmuka pengguna grafis untuk input data dan menampilkan hasil CV.
 
 
 
 
-## 🎉 Selamat Belajar!
+## 🎉 Selamat Menggunakan!
 
