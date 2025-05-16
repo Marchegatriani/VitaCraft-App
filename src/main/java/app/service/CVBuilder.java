@@ -2,10 +2,11 @@ package app.service;
 
 import app.cvbuilder.model.CVEntry; // Pastikan import CVEntry
 
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.Document;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.PdfDocument;
+
 import java.io.FileNotFoundException;
 
 public class CVBuilder {
