@@ -1,6 +1,4 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -8,14 +6,12 @@ import javax.swing.*;
 import app.cvbuilder.model.Achievement;
 import app.cvbuilder.model.AchievementSection;
 import app.cvbuilder.model.CVSection;
-import app.cvbuilder.model.Contact;
 import app.cvbuilder.model.Education;
 import app.cvbuilder.model.EducationSection;
 import app.cvbuilder.model.Internship;
 import app.cvbuilder.model.InternshipSection;
 import app.cvbuilder.model.OrganizationExperience;
 import app.cvbuilder.model.OrganizationSection;
-import app.cvbuilder.model.Profile;
 import app.cvbuilder.model.Skills;
 import app.cvbuilder.model.SkillsSection;
 
