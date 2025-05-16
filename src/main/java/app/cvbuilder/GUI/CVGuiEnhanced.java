@@ -347,17 +347,20 @@ public class CVGuiEnhanced extends JFrame {
     // Input Panels (Separate Classes for better organization)
 
     class EducationInputPanel extends JPanel {
-        private JTextField degreeField = new JTextField(15);
         private JTextField institutionField = new JTextField(15);
+        private JTextField majorField = new JTextField(15);
+        private JTextField ipkField = new JTextField(5);
         private JTextField startYearField = new JTextField(5);
         private JTextField endYearField = new JTextField(5);
 
         public EducationInputPanel() {
             setLayout(new FlowLayout(FlowLayout.LEFT));
-            add(new JLabel("Gelar:"));
-            add(degreeField);
             add(new JLabel("Institusi:"));
             add(institutionField);
+            add(new JLabel("Jurusan:"));
+            add(majorField);
+            add(new JLabel("IPK Terakhir:"));
+            add(ipkField);
             add(new JLabel("Tahun Mulai:"));
             add(startYearField);
             add(new JLabel("Tahun Selesai:"));
@@ -365,11 +368,12 @@ public class CVGuiEnhanced extends JFrame {
         }
 
         public Education getEducation() {
-            String degree = degreeField.getText();
             String institution = institutionField.getText();
+            String major = majorField.getText();
+            double ipk = ipkField.get;
             String startYear = startYearField.getText();
             String endYear = endYearField.getText();
-            if (degree.isEmpty() || institution.isEmpty() || startYear.isEmpty() || endYear.isEmpty()) {
+            if (major.isEmpty() || institution.isEmpty() || startYear.isEmpty() || endYear.isEmpty()) {
                 return null; // or show an error message
             }
             if (Integer.parseInt(startYear) >= Integer.parseInt(endYear)) {
@@ -377,7 +381,7 @@ public class CVGuiEnhanced extends JFrame {
                         "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
-            return new Education(degree, institution, startYear, endYear);
+            return new Education(ipk, institution, major, startYear, endYear);
         }
     }
 
