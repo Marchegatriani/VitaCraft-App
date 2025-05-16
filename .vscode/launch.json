@@ -3,13 +3,33 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "app.cvbuilder.Main",
+            "projectName": "VitaCraft-App_c6494c7c"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "app.cvbuilder.Main",
+            "projectName": "cvcreator"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "app.cvbuilder.Main",
+            "projectName": "VitaCraft-App_1fea4263"
+        },
+        {
+            "type": "java",
             "name": "Launch Main",
             "request": "launch",
-            "mainClass": "Main",  
-            "projectName": "VitaCraft-App",  
+            "mainClass": "app.cvbuilder.Main",
+            "projectName": "VitaCraft-App",
             "classpath": [
-                "${workspaceFolder}/libs/itextpdf-5.5.13.4.jar",  
-                "${workspaceFolder}/bin"  
+                "${workspaceFolder}/libs/itextpdf-5.5.13.3.jar"
             ]
         }
     ]
