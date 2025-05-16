@@ -62,37 +62,37 @@ Ikuti langkah-langkah berikut untuk membuat CV Anda menggunakan VitaCraft:
 4.  **Keluaran CV:** Setelah Anda memasukkan semua data, VitaCraft akan menampilkan CV Anda dalam format teks terstruktur di konsol.
 
     ```bash
-   John Doe
-   john.doe@example.com | 08123456789 | Makassar
+      John Doe
+      john.doe@example.com | 08123456789 | Makassar
 
-   Profil 
-   --------------------------------------------------------
-   Software Developer with 5 years of experience.
-   
-   Pendidikan
-   --------------------------------------------------------
-   - Universitas A, Teknik Informatika (2015 - 2019)
-   IPK: 3.5
-   - Universitas B, Manajemen Teknologi (2020 - 2022)
-   IPK: 3.8
-   
-   Skills
-   --------------------------------------------------------
-   - Java
-   - Python
-   - SQL
-   
-   Internship
-   --------------------------------------------------------
-   - Software Engineer di Perusahaan X (2020 - 2021): Mengembangkan aplikasi berbasis web.
-   
-   Prestasi
-   --------------------------------------------------------
-   - Penghargaan Karyawan Terbaik: Diberikan sebagai karyawan terbaik tahun 2021 (2021).
-   
-   Pengalaman Organisasi
-   --------------------------------------------------------
-   - Ketua Himpunan, Himpunan Mahasiswa Teknik ( 2018 - 2019): Mengorganisir kegiatan seminar dan workshop.
+      Profil 
+      --------------------------------------------------------
+      Software Developer with 5 years of experience.
+      
+      Pendidikan
+      --------------------------------------------------------
+      - Universitas A, Teknik Informatika (2015 - 2019)
+      IPK: 3.5
+      - Universitas B, Manajemen Teknologi (2020 - 2022)
+      IPK: 3.8
+      
+      Skills
+      --------------------------------------------------------
+      - Java
+      - Python
+      - SQL
+      
+      Internship
+      --------------------------------------------------------
+      - Software Engineer di Perusahaan X (2020 - 2021): Mengembangkan aplikasi berbasis web.
+      
+      Prestasi
+      --------------------------------------------------------
+      - Penghargaan Karyawan Terbaik: Diberikan sebagai karyawan terbaik tahun 2021 (2021).
+      
+      Pengalaman Organisasi
+      --------------------------------------------------------
+      - Ketua Himpunan, Himpunan Mahasiswa Teknik ( 2018 - 2019): Mengorganisir kegiatan seminar dan workshop.
    ```
 
 Berikut adalah pembagian tugas anggota tim dalam proyek ini:
