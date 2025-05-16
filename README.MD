@@ -62,69 +62,76 @@ Ikuti langkah-langkah berikut untuk membuat CV Anda menggunakan VitaCraft:
 4.  **Keluaran CV:** Setelah Anda memasukkan semua data, VitaCraft akan menampilkan CV Anda dalam format teks terstruktur di konsol.
 
     ```bash
-    === CURRICULUM VITAE ===
+    John Doe
+    john.doe@example.com | 08123456789 | Makassar
 
-    John Doe - Software Developer
-    A highly motivated software developer with 5+ years of experience in Java and web technologies.
-    john.doe@example.com | 123-456-7890 | 123 Main Street, Anytown, CA
+    Profil 
+    --------------------------------------------------------
+    Software Developer with 5 years of experience.
 
-    Education
-    - Master of Science in Computer Science at Stanford University (2018 - 2020)
-    - Bachelor of Science in Computer Science at University of California, Berkeley (2014 - 2018)
+    Pendidikan
+    --------------------------------------------------------
+    - Universitas A, Teknik Informatika (2015 - 2019)
+    IPK: 3.5
+    - Universitas B, Manajemen Teknologi (2020 - 2022)
+    IPK: 3.8
 
-    Achievements
-    - Published Research Paper (2019): Co-authored a paper on distributed systems in a top-tier conference.
-    - Hackathon Winner (2017): Won first place in the XYZ Hackathon for developing an innovative mobile application.
+    Keahlian
+    --------------------------------------------------------
+    - Java
+    - Python
+    - SQL
 
-    Organizational Experiences
-    - President at Computer Science Club (2016 - 2018): Led the club, organized workshops, and mentored students.
+    Pengalaman Bekerja
+    --------------------------------------------------------
+    - Software Engineer di Perusahaan X (2020 - 2021): Mengembangkan aplikasi berbasis web.
 
-    Internships
-    - Software Engineering Intern at Google (2019 - 2019): Developed a new feature for Google Maps using Java and React.
+    Prestasi
+    --------------------------------------------------------
+    - Penghargaan Karyawan Terbaik: Diberikan sebagai karyawan terbaik tahun 2021 (2021).
 
-    Skills
-    - Java (Advanced)
-    - React (Intermediate)
-    - Communication (Advanced)
+    Pengalaman Organisasi
+    --------------------------------------------------------
+    - Ketua Himpunan, Himpunan Mahasiswa Teknik ( 2018 - 2019): Mengorganisir kegiatan seminar dan workshop.
     ```
     ## Pembagian Kerja Tim
 
-Berikut adalah pembagian tugas anggota tim dalam proyek ini:
+    Berikut adalah pembagian tugas anggota tim dalam proyek ini:
 
-* **Gatri**:
-    * Main (Bertanggung jawab atas integrasi keseluruhan modul dan alur utama aplikasi)
+    * **Gatri**:
+        * Main (Bertanggung jawab atas integrasi keseluruhan modul dan alur utama aplikasi)
 
-* **Fathir**:
-    * `Achievement`: Kelas yang merepresentasikan informasi pencapaian.
-    * `AchievementSection`: Kelas yang menangani logika dan format untuk bagian pencapaian dalam CV.
-    * `Contact`: Kelas yang merepresentasikan informasi kontak.
-    * `Profile`: Kelas yang merepresentasikan informasi profil pribadi.
+    * **Fathir**:
+        * `Achievement`: Kelas yang merepresentasikan informasi pencapaian.
+        * `AchievementSection`: Kelas yang menangani logika dan format untuk bagian pencapaian dalam CV.
+        * `Contact`: Kelas yang merepresentasikan informasi kontak.
+        * `Profile`: Kelas yang merepresentasikan informasi profil pribadi.
 
-* **Caca**:
-    * `Education`: Kelas yang merepresentasikan informasi pendidikan.
-    * `EducationSection`: Kelas yang menangani logika dan format untuk bagian pendidikan dalam CV.
-    * `Internship`: Kelas yang merepresentasikan informasi magang.
-    * `InternshipSection`: Kelas yang menangani logika dan format untuk bagian magang dalam CV.
+    * **Caca**:
+        * `Education`: Kelas yang merepresentasikan informasi pendidikan.
+        * `EducationSection`: Kelas yang menangani logika dan format untuk bagian pendidikan dalam CV.
+        * `Internship`: Kelas yang merepresentasikan informasi magang.
+        * `InternshipSection`: Kelas yang menangani logika dan format untuk bagian magang dalam CV.
 
-* **Hanifah**:
-    * `Organization experience`: Kelas yang merepresentasikan informasi pengalaman organisasi.
-    * `OrganizationSection`: Kelas yang menangani logika dan format untuk bagian pengalaman organisasi dalam CV.
-    * `Skills`: Kelas yang merepresentasikan informasi keterampilan.
-    * `SkillsSection`: Kelas yang menangani logika dan format untuk bagian keterampilan dalam CV.
+    * **Hanifah**:
+        * `Organization experience`: Kelas yang merepresentasikan informasi pengalaman organisasi.
+        * `OrganizationSection`: Kelas yang menangani logika dan format untuk bagian pengalaman organisasi dalam CV.
+        * `Skills`: Kelas yang merepresentasikan informasi keterampilan.
+        * `SkillsSection`: Kelas yang menangani logika dan format untuk bagian keterampilan dalam CV.
 
-* **Ryan**:
-    * `CvEntry`: Kelas abstrak atau interface yang mendefinisikan struktur dasar untuk setiap entri dalam CV (misalnya, pendidikan, pengalaman kerja, dll.).
-    * `CvSection`: Kelas abstrak atau interface yang mendefinisikan struktur dasar untuk setiap bagian dalam CV (misalnya, bagian pendidikan, bagian pengalaman kerja, dll.).
-    * `Input helper`: Kelas-kelas atau fungsi-fungsi pembantu untuk memproses dan memvalidasi input pengguna dari GUI.
+    * **Ryan**:
+        * `CvEntry`: Kelas abstrak atau interface yang mendefinisikan struktur dasar untuk setiap entri dalam CV (misalnya, pendidikan, pengalaman kerja, dll.).
+        * `CvSection`: Kelas abstrak atau interface yang mendefinisikan struktur dasar untuk setiap bagian dalam CV (misalnya, bagian pendidikan, bagian pengalaman kerja, dll.).
+        * `Input helper`: Kelas-kelas atau fungsi-fungsi pembantu untuk memproses dan memvalidasi input pengguna dari GUI.
 
-## Tanggung Jawab Bersama
+    ## Tanggung Jawab Bersama
 
-Fitur-fitur berikut akan dikerjakan secara kolaboratif oleh seluruh anggota tim:
+    Fitur-fitur berikut akan dikerjakan secara kolaboratif oleh seluruh anggota tim:
 
-* **GUI**: Pengembangan antarmuka pengguna grafis untuk input data dan menampilkan hasil CV.
-
-
+    * **GUI**: Pengembangan antarmuka pengguna grafis untuk input data dan menampilkan hasil CV.
 
 
-## 🎉 Selamat Belajar!
+
+
+## 🎉 Selamat Menggunakan!
 
