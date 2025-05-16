@@ -2,12 +2,10 @@ package app.cvbuilder.model;
 
 public class Profile {
     private String name;
-    private String title;
     private String summary;
 
-    public Profile(String name, String title, String summary) {
+    public Profile(String name, String summary) {
         this.name = name;
-        this.title = title;
         this.summary = summary;
     }
 
@@ -20,14 +18,6 @@ public class Profile {
         this.name = name;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getSummary() {
         return summary;
     }
@@ -36,8 +26,4 @@ public class Profile {
         this.summary = summary;
     }
 
-    @Override
-    public String toString() {
-        return name + " - " + title + "\n" + summary;
-    }
 }

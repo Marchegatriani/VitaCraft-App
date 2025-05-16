@@ -1,24 +1,19 @@
 package app.cvbuilder.model;
 
-public class Skills {
+public class Skills extends CVEntry {
     private String skillName;
-    private String level;
 
-    public Skills(String skillName, String level) {
+    public Skills(String skillName) {
         this.skillName = skillName;
-        this.level = level;
     }
 
     public String getSkillName() {
         return skillName;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
+    @Override
     public String formatForDisplay() {
-        return skillName + " (" + level + ")";
+        return skillName;
     }
 
     @Override
