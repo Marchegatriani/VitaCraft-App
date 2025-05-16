@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -233,9 +232,6 @@ public class CVGuiEnhanced extends JFrame {
                     "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        Profile profile = new Profile(name, "", summary);  // Empty string for title
-        Contact contact = new Contact(email, phone, address);
 
         // Get data from input panels
         List<Education> educations = new ArrayList<>();
@@ -557,7 +553,7 @@ public class CVGuiEnhanced extends JFrame {
             if (skillName.isEmpty()) {
                 return null;
             }
-            return new Skills(skillName, ""); // Level dikosongkan
+            return new Skills(skillName);
         }
     }
 }
