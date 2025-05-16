@@ -1,8 +1,6 @@
 package app.cvbuilder.model;
 
-public class CVEntry {
-
-    
+public abstract class CVEntry {
     private String start;
     private String end;
 
@@ -19,7 +17,6 @@ public class CVEntry {
         return end;
     }
 
-    public String formatForDisplay() {
-        return "(" + start + " - " + end + ")";
-    } 
+    public abstract String formatForDisplay();
+
 }

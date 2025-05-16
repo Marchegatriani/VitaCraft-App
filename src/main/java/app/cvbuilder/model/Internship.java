@@ -11,10 +11,9 @@ public class Internship extends CVEntry {
         this.position = position;
         this.responsibilities = responsibilities;
     }
-
     @Override
     public String formatForDisplay() {
-        return position + " | " + company + " (" + getStart() + " - " + getEnd() + "): " + responsibilities;
+        return position + " di " + company + "(" + getStart() + "-" + getEnd() + ")" + " " + responsibilities;
     }
 
     @Override
