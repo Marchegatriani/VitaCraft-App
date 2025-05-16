@@ -27,4 +27,9 @@ public class Education extends CVEntry {
     public String toString() {
         return formatForDisplay();
     }
+
+    public Object getIpk() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getIpk'");
+    }
 }
