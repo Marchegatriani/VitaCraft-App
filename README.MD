@@ -76,13 +76,13 @@ Ikuti langkah-langkah berikut untuk membuat CV Anda menggunakan VitaCraft:
     - Universitas B, Manajemen Teknologi (2020 - 2022)
     IPK: 3.8
 
-    Skills
+    Keahlian
     --------------------------------------------------------
     - Java
     - Python
     - SQL
 
-    Internship
+    Pengalaman Bekerja
     --------------------------------------------------------
     - Software Engineer di Perusahaan X (2020 - 2021): Mengembangkan aplikasi berbasis web.
 
