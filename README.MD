@@ -62,32 +62,37 @@ Ikuti langkah-langkah berikut untuk membuat CV Anda menggunakan VitaCraft:
 4.  **Keluaran CV:** Setelah Anda memasukkan semua data, VitaCraft akan menampilkan CV Anda dalam format teks terstruktur di konsol.
 
     ```bash
-    === CURRICULUM VITAE ===
+   John Doe
+   john.doe@example.com | 08123456789 | Makassar
 
-    John Doe - Software Developer
-    A highly motivated software developer with 5+ years of experience in Java and web technologies.
-    john.doe@example.com | 123-456-7890 | 123 Main Street, Anytown, CA
-
-    Education
-    - Master of Science in Computer Science at Stanford University (2018 - 2020)
-    - Bachelor of Science in Computer Science at University of California, Berkeley (2014 - 2018)
-
-    Achievements
-    - Published Research Paper (2019): Co-authored a paper on distributed systems in a top-tier conference.
-    - Hackathon Winner (2017): Won first place in the XYZ Hackathon for developing an innovative mobile application.
-
-    Organizational Experiences
-    - President at Computer Science Club (2016 - 2018): Led the club, organized workshops, and mentored students.
-
-    Internships
-    - Software Engineering Intern at Google (2019 - 2019): Developed a new feature for Google Maps using Java and React.
-
-    Skills
-    - Java (Advanced)
-    - React (Intermediate)
-    - Communication (Advanced)
-    ```
-    ## Pembagian Kerja Tim
+   Profil 
+   --------------------------------------------------------
+   Software Developer with 5 years of experience.
+   
+   Pendidikan
+   --------------------------------------------------------
+   - Universitas A, Teknik Informatika (2015 - 2019)
+   IPK: 3.5
+   - Universitas B, Manajemen Teknologi (2020 - 2022)
+   IPK: 3.8
+   
+   Skills
+   --------------------------------------------------------
+   - Java
+   - Python
+   - SQL
+   
+   Internship
+   --------------------------------------------------------
+   - Software Engineer di Perusahaan X (2020 - 2021): Mengembangkan aplikasi berbasis web.
+   
+   Prestasi
+   --------------------------------------------------------
+   - Penghargaan Karyawan Terbaik: Diberikan sebagai karyawan terbaik tahun 2021 (2021).
+   
+   Pengalaman Organisasi
+   --------------------------------------------------------
+   - Ketua Himpunan, Himpunan Mahasiswa Teknik ( 2018 - 2019): Mengorganisir kegiatan seminar dan workshop.
 
 Berikut adalah pembagian tugas anggota tim dalam proyek ini:
 
