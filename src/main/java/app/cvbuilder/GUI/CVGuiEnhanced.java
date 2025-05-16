@@ -239,7 +239,7 @@ public class CVGuiEnhanced extends JFrame {
             return;
         }
 
-        Profile profile = new Profile(name, title, summary);
+        Profile profile = new Profile(name, summary);
         Contact contact = new Contact(email, phone, address);
 
         // Get data from input panels
@@ -497,7 +497,7 @@ public class CVGuiEnhanced extends JFrame {
             if (skillName.isEmpty()) {
                 return null;
             }
-            return new Skills(skillName, ""); // Level dikosongkan
+            return new Skills(skillName);
         }
     }
 }

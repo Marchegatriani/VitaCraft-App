@@ -13,7 +13,7 @@ public class Internship extends CVEntry {
     }
     @Override
     public String formatForDisplay() {
-        return position + " di " + company + "(" + getStart() + "-" + getEnd() + ")" + " " + responsibilities;
+        return position + " di " + company + " (" + getStart() + "-" + getEnd() + ")" + ": " + responsibilities;
     }
 
     @Override

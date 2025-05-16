@@ -1,17 +1,19 @@
 package app.cvbuilder.model;
 
 public class Education extends CVEntry {
-    private String degree;
+    private double ipk;
     private String institution;
+    private String major;
 
-    public Education(String degree, String institution, String start, String end) {
+    public Education(double ipk, String institution, String major, String start, String end) {
         super(start, end);
-        this.degree = degree;
+        this.ipk = ipk;
         this.institution = institution;
+        this.major = major;
     }
 
-    public String getDegree() {
-        return degree;
+    public double getIpk() {
+        return ipk;
     }
 
     public String getInstitution() {
@@ -20,7 +22,7 @@ public class Education extends CVEntry {
 
     @Override
     public String formatForDisplay() {
-        return degree + institution + "(" + getStart() + " - " + getEnd() + ")";
+        return institution + ", " + major + " (" + getStart() + " - " + getEnd() + ")\n IPK: " + ipk;
     }
 
     @Override

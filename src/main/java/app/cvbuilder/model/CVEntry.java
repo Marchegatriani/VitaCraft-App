@@ -4,6 +4,10 @@ public abstract class CVEntry {
     private String start;
     private String end;
 
+    public CVEntry(){
+        
+    }
+
     public CVEntry(String start, String end) {
         this.start = start;
         this.end = end;

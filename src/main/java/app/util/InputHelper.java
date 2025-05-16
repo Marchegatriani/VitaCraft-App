@@ -26,6 +26,17 @@ public class InputHelper {
         return result;
     }
 
+    public static double getDouble(String prompt) {
+        System.out.print(prompt);
+        while (!scanner.hasNextDouble()) {
+            System.out.print("Masukkan angka desimal yang valid: ");
+            scanner.next();
+        }
+        double result = scanner.nextDouble();
+        scanner.nextLine();
+        return result;
+    }
+
     public static String getMultilineInput(String prompt) {
         System.out.println(prompt + " (Ketik 'END' untuk selesai)");
         StringBuilder sb = new StringBuilder();

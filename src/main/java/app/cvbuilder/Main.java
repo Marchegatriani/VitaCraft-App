@@ -24,9 +24,8 @@ public class Main {
 
         // Profil dan Kontak
         String name = InputHelper.getString("Masukkan nama Anda: ");
-        String title = InputHelper.getString("Masukkan profesi Anda: ");
         String summary = InputHelper.getString("Masukkan ringkasan singkat tentang anda: ");
-        Profile profile = new Profile(name, title, summary);
+        Profile profile = new Profile(name, summary);
 
         String email = InputHelper.getEmail("Masukkan email Anda: ");
         String phone = InputHelper.getPhoneNumber("Masukkan nomor telepon Anda: ");
@@ -38,11 +37,12 @@ public class Main {
         int eduCount = InputHelper.getInt("Berapa banyak pendidikan yang ingin dimasukkan? (yang telah ditempuh): ");
         for (int i = 0; i < eduCount; i++) {
             System.out.println("Pendidikan #" + (i + 1));
-            String degree = InputHelper.getString("Gelar: ");
             String institution = InputHelper.getString("Institusi: ");
-            String start = InputHelper.getString("Tahun Mulai: ");
-            String end = InputHelper.getString("Tahun Selesai: ");
-            educations.add(new Education(degree, institution, start, end));
+            String major = InputHelper.getString("Masukkan jurusan anda: ");
+            double ipk = InputHelper.getDouble("IPK: ");
+            String start = getValidYear("Tahun Mulai: ");
+            String end = getValidYearOrCurrent("Tahun Selesai: ", start);
+            educations.add(new Education(ipk, institution, major, start, end));
         }
 
         // Skills
@@ -51,8 +51,7 @@ public class Main {
         for (int i = 0; i < sklCount; i++) {
             System.out.println("Skills #" + (i + 1));
             String skillName = InputHelper.getString("Keahlian: ");
-            String level = InputHelper.getString("Masukkan: ");
-            skills.add(new Skills(skillName, level));
+            skills.add(new Skills(skillName));
         }
 
         // Internship
@@ -62,8 +61,8 @@ public class Main {
             System.out.println("Internship #" + (i + 1));
             String company = InputHelper.getString("Perusahaan/Instansi: ");
             String position = InputHelper.getString("Posisi: ");
-            String start = InputHelper.getString("Tanggal/Tahun mulai: ");
-            String end = InputHelper.getString("Tanggal/Tahun selesai: ");
+            String start = getValidYear("Tahun mulai: ");
+            String end = getValidYearOrCurrent("Tahun selesai ", start);
             String responsibilities = InputHelper.getString("Tanggung Jawab: ");
             internships.add(new Internship(company, position, start, end, responsibilities));
         }
@@ -75,7 +74,7 @@ public class Main {
             System.out.println("Prestasi #" + (i + 1));
             String titleAch = InputHelper.getString("Judul: ");
             String desc = InputHelper.getString("Deskripsi: ");
-            String year = InputHelper.getString("Tahun: ");
+            String year = getValidYear("Tahun: ");
             achievements.add(new Achievement(titleAch, desc, year));
         }
 
@@ -84,10 +83,10 @@ public class Main {
         int orgCount = InputHelper.getInt("Berapa banyak pengalaman organisasi yang ingin dimasukkan?: ");
         for (int i = 0; i < orgCount; i++) {
             System.out.println("Organization #" + (i + 1));
-            String role = InputHelper.getString("Peran: ");
+            String role = InputHelper.getString("Jabatan: ");
             String orgName = InputHelper.getString("Nama Organisasi: ");
-            String start = InputHelper.getString("Tanggal/Tahun Mulai: ");
-            String end = InputHelper.getString("Tanggal/Tahun Selesai: ");
+            String start = getValidYear("Tahun Mulai: ");
+            String end = getValidYearOrCurrent("Tahun Selesai: ", start);
             String desc = InputHelper.getString("Deskripsi: ");
             orgs.add(new OrganizationExperience(role, orgName, start, end, desc));
         }
@@ -100,10 +99,10 @@ public class Main {
         CVSection organizationSection = new OrganizationSection(orgs);
 
         // Tampilkan CV
-        System.out.println("\n" + profile.getName() + "\n");
-        System.out.println(profile.getTitle());
+        System.out.println("\n" + profile.getName());
         System.out.println(contact + "\n");
-        System.out.println(profile.getSummary());
+        System.out.println("Profil \n--------------------------------------------------------");
+        System.out.println(profile.getSummary() + "\n");
 
         if (!educations.isEmpty()) {
             System.out.println(educationSection.getSectionTitle());
@@ -129,6 +128,34 @@ public class Main {
             System.out.println(organizationSection.getSectionTitle());
             System.out.println(organizationSection.getFormattedContent());
         }
+    }
 
+    private static String getValidYear(String prompt) {
+        String year;
+        while (true) {
+            year = InputHelper.getString(prompt);
+            if (year.matches("\\d{4}")) {
+                break;
+            } else {
+                System.out.println("Tahun harus berupa 4 digit angka. Silakan coba lagi.");
+            }
+        }
+        return year;
+    }
+
+    private static String getValidYearOrCurrent(String prompt, String startYear) {
+        String year;
+        while (true) {
+            year = InputHelper.getString(prompt + " (atau 'Sekarang'): ");
+            if (year.equalsIgnoreCase("Sekarang")) {
+                break;
+            } else if (year.matches("\\d{4}") && Integer.parseInt(year) > Integer.parseInt(startYear)) {
+                break;
+            } else {
+                System.out.println(
+                        "Tahun selesai harus lebih besar dari tahun mulai atau 'Sekarang'. Silakan coba lagi.");
+            }
+        }
+        return year;
     }
 }
