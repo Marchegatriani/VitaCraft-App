@@ -15,9 +15,22 @@ public class Education extends CVEntry {
     public double getIpk() {
         return ipk;
     }
+    public void setIpk(double ipk) {
+        this.ipk = ipk;
+    }
 
     public String getInstitution() {
         return institution;
+    }
+    public void setInstitution(String institution) {
+        this.institution = institution;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     @Override
@@ -28,10 +41,5 @@ public class Education extends CVEntry {
     @Override
     public String toString() {
         return formatForDisplay();
-    }
-
-    public Object getIpk() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIpk'");
     }
 }

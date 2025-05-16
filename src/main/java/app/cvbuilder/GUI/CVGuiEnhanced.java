@@ -1,18 +1,17 @@
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
 
 import app.cvbuilder.model.Achievement;
 import app.cvbuilder.model.AchievementSection;
 import app.cvbuilder.model.CVSection;
-import app.cvbuilder.model.Contact;
 import app.cvbuilder.model.Education;
 import app.cvbuilder.model.EducationSection;
 import app.cvbuilder.model.Internship;
 import app.cvbuilder.model.InternshipSection;
 import app.cvbuilder.model.OrganizationExperience;
 import app.cvbuilder.model.OrganizationSection;
-import app.cvbuilder.model.Profile;
 import app.cvbuilder.model.Skills;
 import app.cvbuilder.model.SkillsSection;
 
@@ -29,12 +28,14 @@ public class CVGuiEnhanced extends JFrame {
     private List<SkillInputPanel> skillInputPanels = new ArrayList<>();
 
     public CVGuiEnhanced() {
-        setTitle("CV Builder Enhanced");
+        setTitle("VitaCraft-App");
         setSize(800, 600);
+        getContentPane().setBackground(new Color(135, 206, 235)); // Warna biru muda
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         JPanel inputPanel = new JPanel(new GridBagLayout());
+        inputPanel.setBackground(new Color(135, 206, 235)); // Warna biru muda
         add(inputPanel, BorderLayout.NORTH);
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -43,17 +44,18 @@ public class CVGuiEnhanced extends JFrame {
 
         // Panel Profil dan Kontak
         JPanel profileContactPanel = new JPanel(new GridLayout(0, 2));
+        profileContactPanel.setBackground(new Color(135, 206, 235));
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        inputPanel.add(profileContactPanel, gbc);
 
+        inputPanel.add(profileContactPanel, gbc);
         profileContactPanel.add(new JLabel("Nama: "));
         nameField = new JTextField(20);
         profileContactPanel.add(nameField);
 
-        profileContactPanel.add(new JLabel("Ringkasan singkat diri anda: "));
+        profileContactPanel.add(new JLabel("Ringkasan singkat diri Anda: "));
         summaryField = new JTextField(20);
         profileContactPanel.add(summaryField);
 
@@ -78,10 +80,19 @@ public class CVGuiEnhanced extends JFrame {
 
         // Add Buttons for adding entries
         addEducationButton = new JButton("Tambahkan Riwayat Pendidikan");
+        addEducationButton.setBackground(new Color(255, 255, 255));
+
         addSkillButton = new JButton("Tambahkan Keahlian");
+        addSkillButton.setBackground(new Color(255, 255, 255));
+
         addInternshipButton = new JButton("Tambahkan Pengalaman Bekerja/Magang");
+        addInternshipButton.setBackground(new Color(255, 255, 255));
+
         addAchievementButton = new JButton("Tambahkan Prestasi");
+        addAchievementButton.setBackground(new Color(255, 255, 255));
+
         addOrgButton = new JButton("Tambahkan Riwayat Organisasi");
+        addOrgButton.setBackground(new Color(255, 255, 255));
 
         // Action Listeners
         addEducationButton.addActionListener(e -> addEducationEntry());
@@ -152,7 +163,8 @@ public class CVGuiEnhanced extends JFrame {
         gbc.gridy = 6;
         inputPanel.add(addOrgButton, gbc);
 
-        JButton generateCvButton = new JButton("Generate CV");
+        JButton generateCvButton = new JButton("Buat CV");
+        generateCvButton.setBackground(new Color(255, 255, 255));
         generateCvButton.addActionListener(e -> generateCV());
         add(generateCvButton, BorderLayout.SOUTH);
 
@@ -211,16 +223,14 @@ public class CVGuiEnhanced extends JFrame {
         if (name.isEmpty() || summary.isEmpty() || email.isEmpty() || phone.isEmpty()
                 || address.isEmpty()) {
             JOptionPane.showMessageDialog(this,
-                    "Semua data (Nama, Ringkasan singkat diri anda, Email, Nomor HP, Alamat) harus diisi.",
-                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+                    "Semua data (Nama, Ringkasan singkat diri Anda, Email, Nomor HP, Alamat) harus diisi.",
+                    "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         // Validate phone number as integer
-        try {
-            Integer.parseInt(phone);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Nomor HP harus berupa angka.", "Validation Error",
+        if (!phone.matches("\\d+")) { // Menggunakan regex untuk memastikan hanya berisi angka
+            JOptionPane.showMessageDialog(this, "Nomor HP harus berupa angka.", "Kesalahan Validasi",
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -229,7 +239,7 @@ public class CVGuiEnhanced extends JFrame {
         String emailRegex = "^[a-zA-Z0-9._%+-]+@gmail\\.com$";
         if (!email.matches(emailRegex)) {
             JOptionPane.showMessageDialog(this, "Email harus berformat valid (contoh: nama@gmail.com).",
-                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+                    "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -283,27 +293,27 @@ public class CVGuiEnhanced extends JFrame {
 
         // Generate CV output with enhanced formatting
         StringBuilder cvContent = new StringBuilder();
-        
+
         // Format header according to image style - centered
         String nameUpper = name.toUpperCase();
         int screenWidth = 60; // Assuming a reasonable screen width
-        
+
         // Center the name
         int nameSpaces = (screenWidth - nameUpper.length()) / 2;
         String nameIndent = " ".repeat(Math.max(0, nameSpaces));
         cvContent.append(String.format("%s%s%n", nameIndent, nameUpper));
-        
+
         // Center the contact info
         String contactInfo = String.format("%s | +%s | %s", email, phone, address);
         int contactSpaces = (screenWidth - contactInfo.length()) / 2;
         String contactIndent = " ".repeat(Math.max(0, contactSpaces));
         cvContent.append(String.format("%s%s%n%n", contactIndent, contactInfo));
-        
+
         // Add horizontal line for PROFIL section
         cvContent.append("PROFIL\n");
         cvContent.append("------------------------------------------------------------\n");
         cvContent.append(summary).append("\n\n");
-        
+
         // Other sections remain the same
         if (!educations.isEmpty()) {
             cvContent.append(educationSection.getSectionTitle()).append("\n");
@@ -332,7 +342,7 @@ public class CVGuiEnhanced extends JFrame {
 
         // Open a new frame for CV output
         SwingUtilities.invokeLater(() -> {
-            JFrame outputFrame = new JFrame("CV Output");
+            JFrame outputFrame = new JFrame("Hasil CV");
             outputFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Close only the output frame
             JTextArea outputTextArea = new JTextArea(cvContent.toString());
             outputTextArea.setEditable(false);
@@ -351,17 +361,20 @@ public class CVGuiEnhanced extends JFrame {
     // Input Panels (Separate Classes for better organization)
 
     class EducationInputPanel extends JPanel {
-        private JTextField ipkField = new JTextField(15);
         private JTextField institutionField = new JTextField(15);
+        private JTextField majorField = new JTextField(15);
+        private JTextField ipkField = new JTextField(5);
         private JTextField startYearField = new JTextField(5);
         private JTextField endYearField = new JTextField(5);
 
         public EducationInputPanel() {
             setLayout(new FlowLayout(FlowLayout.LEFT));
-            add(new JLabel("IPK:"));
-            add(ipkField);
             add(new JLabel("Institusi:"));
             add(institutionField);
+            add(new JLabel("Jurusan:"));
+            add(majorField);
+            add(new JLabel("IPK Terakhir:"));
+            add(ipkField);
             add(new JLabel("Tahun Mulai:"));
             add(startYearField);
             add(new JLabel("Tahun Selesai:"));
@@ -369,44 +382,45 @@ public class CVGuiEnhanced extends JFrame {
         }
 
         public Education getEducation() {
-            String ipkText = ipkField.getText();
             String institution = institutionField.getText();
+            String major = majorField.getText();
+            String ipkText = ipkField.getText();
             String startYear = startYearField.getText();
             String endYear = endYearField.getText();
-            
-            if (ipkText.isEmpty() || institution.isEmpty() || startYear.isEmpty() || endYear.isEmpty()) {
+
+            if (institution.isEmpty() || major.isEmpty() || ipkText.isEmpty() || startYear.isEmpty()
+                    || endYear.isEmpty()) {
                 return null; // Incomplete data
             }
-            
+
             // Validate IPK as double
             double ipk;
             try {
                 ipk = Double.parseDouble(ipkText);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "IPK harus berupa angka desimal (contoh: 3.5).",
-                        "Validation Error", JOptionPane.ERROR_MESSAGE);
+                        "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
-            
+
             // Validate year format and range
             try {
                 int startYearVal = Integer.parseInt(startYear);
-                int endYearVal = Integer.parseInt(endYear);
-                
-                if (startYearVal >= endYearVal) {
-                    JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
-                            "Validation Error", JOptionPane.ERROR_MESSAGE);
-                    return null;
+                if (!endYear.equals("sekarang")) {
+                    int endYearVal = Integer.parseInt(endYear);
+                    if (startYearVal >= endYearVal) {
+                        JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+                                "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
+                        return null;
+                    }
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka.",
-                        "Validation Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka atau 'sekarang'.",
+                        "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
-            
-            // We assume that Education class has been updated to accept double for IPK
-            // If this is not the case, you'll need to update the Education class as well
-            return new Education(String.valueOf(ipk), institution, startYear, endYear);
+
+            return new Education(ipk, institution, major, startYear, endYear);
         }
     }
 
@@ -467,22 +481,23 @@ public class CVGuiEnhanced extends JFrame {
                     || description.isEmpty()) {
                 return null;
             }
-            
+
             try {
                 int startYear = Integer.parseInt(startDate);
-                int endYear = Integer.parseInt(endDate);
-                
-                if (startYear >= endYear) {
-                    JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
-                            "Validation Error", JOptionPane.ERROR_MESSAGE);
-                    return null;
+                if (!endDate.equals("sekarang")) {
+                    int endYear = Integer.parseInt(endDate);
+                    if (startYear >= endYear) {
+                        JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+                                "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
+                        return null;
+                    }
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka.",
-                        "Validation Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka atau 'sekarang'.",
+                        "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
-            
+
             return new OrganizationExperience(role, orgName, startDate, endDate, description);
         }
     }
@@ -518,28 +533,29 @@ public class CVGuiEnhanced extends JFrame {
                     || responsibilities.isEmpty()) {
                 return null;
             }
-            
+
             try {
                 int startYear = Integer.parseInt(startDate);
-                int endYear = Integer.parseInt(endDate);
-                
-                if (startYear >= endYear) {
-                    JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
-                            "Validation Error", JOptionPane.ERROR_MESSAGE);
-                    return null;
+                if (!endDate.equals("sekarang")) {
+                    int endYear = Integer.parseInt(endDate);
+                    if (startYear >= endYear) {
+                        JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+                                "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
+                        return null;
+                    }
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka.",
-                        "Validation Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka atau 'sekarang'.",
+                        "Kesalahan Validasi", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
-            
+
             return new Internship(company, position, startDate, endDate, responsibilities);
         }
     }
 
     class SkillInputPanel extends JPanel {
-        private JTextField skillNameField = new JTextField(15); // Lebihkan sedikit ukurannya
+        private JTextField skillNameField = new JTextField(15);
 
         public SkillInputPanel() {
             setLayout(new FlowLayout(FlowLayout.LEFT));

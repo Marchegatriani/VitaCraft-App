@@ -39,7 +39,7 @@ public class Main {
             System.out.println("Pendidikan #" + (i + 1));
             String institution = InputHelper.getString("Institusi: ");
             String major = InputHelper.getString("Masukkan jurusan anda: ");
-            double ipk = InputHelper.getDouble("IPK: ");
+            double ipk = InputHelper.getDouble("IPK Terakhir: ");
             String start = getValidYear("Tahun Mulai: ");
             String end = getValidYearOrCurrent("Tahun Selesai: ", start);
             educations.add(new Education(ipk, institution, major, start, end));

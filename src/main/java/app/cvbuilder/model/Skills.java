@@ -10,6 +10,9 @@ public class Skills extends CVEntry {
     public String getSkillName() {
         return skillName;
     }
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
 
     @Override
     public String formatForDisplay() {

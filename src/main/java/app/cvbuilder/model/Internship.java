@@ -20,4 +20,26 @@ public class Internship extends CVEntry {
     public String toString() {
         return formatForDisplay();
     }
+
+    public String getCompany() {
+        return company;
+    }
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    
+    public String getResponsibilities() {
+        return responsibilities;
+    }
+    public void setResponsibilities(String responsibilities) {
+        this.responsibilities = responsibilities;
+    }
 }
