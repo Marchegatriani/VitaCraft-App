@@ -93,6 +93,7 @@ Ikuti langkah-langkah berikut untuk membuat CV Anda menggunakan VitaCraft:
    Pengalaman Organisasi
    --------------------------------------------------------
    - Ketua Himpunan, Himpunan Mahasiswa Teknik ( 2018 - 2019): Mengorganisir kegiatan seminar dan workshop.
+   ```
 
 Berikut adalah pembagian tugas anggota tim dalam proyek ini:
 
