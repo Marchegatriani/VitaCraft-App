@@ -79,10 +79,10 @@ public class Contact implements Serializable {
         Contact contact = (Contact) o;
 
         return Objects.equals(email, contact.email) &&
-               Objects.equals(phone, contact.phone) &&
-               Objects.equals(address, contact.address) &&
-               Objects.equals(linkedIn, contact.linkedIn) &&
-               Objects.equals(website, contact.website);
+            Objects.equals(phone, contact.phone) &&
+            Objects.equals(address, contact.address) &&
+            Objects.equals(linkedIn, contact.linkedIn) &&
+            Objects.equals(website, contact.website);
     }
 
     @Override
