@@ -95,7 +95,7 @@ Ikuti langkah-langkah berikut untuk membuat CV Anda menggunakan VitaCraft:
       - Ketua Himpunan, Himpunan Mahasiswa Teknik ( 2018 - 2019): Mengorganisir kegiatan seminar dan workshop.
    ```
 
-Berikut adalah pembagian tugas anggota tim dalam proyek ini:
+## Berikut adalah pembagian tugas anggota tim dalam proyek ini:
 
 * **Gatri**:
     * Main (Bertanggung jawab atas integrasi keseluruhan modul dan alur utama aplikasi)
