@@ -16,9 +16,6 @@ public class SkillsSection implements CVSection {
 
     @Override
     public String getFormattedContent() {
-        if (entries.isEmpty()) {
-            return "No skills listed.";
-        }
         StringBuilder sb = new StringBuilder();
         for (Skills skill : entries) {
             sb.append("- ").append(skill.formatForDisplay()).append("\n");
