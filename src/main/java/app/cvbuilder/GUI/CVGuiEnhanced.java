@@ -3,7 +3,19 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.*; // Asumsikan package model Anda ada
+import app.cvbuilder.model.Achievement;
+import app.cvbuilder.model.AchievementSection;
+import app.cvbuilder.model.CVSection;
+import app.cvbuilder.model.Contact;
+import app.cvbuilder.model.Education;
+import app.cvbuilder.model.EducationSection;
+import app.cvbuilder.model.Internship;
+import app.cvbuilder.model.InternshipSection;
+import app.cvbuilder.model.OrganizationExperience;
+import app.cvbuilder.model.OrganizationSection;
+import app.cvbuilder.model.Profile;
+import app.cvbuilder.model.Skills;
+import app.cvbuilder.model.SkillsSection;
 
 public class CVGuiEnhanced extends JFrame {
 
@@ -23,12 +35,12 @@ public class CVGuiEnhanced extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        JPanel inputPanel = new JPanel(new GridBagLayout()); // Use GridBagLayout for more control
+        JPanel inputPanel = new JPanel(new GridBagLayout());
         add(inputPanel, BorderLayout.NORTH);
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // Add some padding
-        gbc.anchor = GridBagConstraints.WEST; // Align components to the left
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.anchor = GridBagConstraints.WEST;
 
         // Panel Profil dan Kontak
         JPanel profileContactPanel = new JPanel(new GridLayout(0, 2));
@@ -38,27 +50,27 @@ public class CVGuiEnhanced extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         inputPanel.add(profileContactPanel, gbc);
 
-        profileContactPanel.add(new JLabel("Name:"));
+        profileContactPanel.add(new JLabel("Nama: "));
         nameField = new JTextField(20);
         profileContactPanel.add(nameField);
 
-        profileContactPanel.add(new JLabel("Title:"));
+        profileContactPanel.add(new JLabel("Gelar: "));
         titleField = new JTextField(20);
         profileContactPanel.add(titleField);
 
-        profileContactPanel.add(new JLabel("Summary:"));
+        profileContactPanel.add(new JLabel("Ringkasan singkat diri anda: "));
         summaryField = new JTextField(20);
         profileContactPanel.add(summaryField);
 
-        profileContactPanel.add(new JLabel("Email:"));
+        profileContactPanel.add(new JLabel("Email: "));
         emailField = new JTextField(20);
         profileContactPanel.add(emailField);
 
-        profileContactPanel.add(new JLabel("Phone:"));
+        profileContactPanel.add(new JLabel("Nomor HP: "));
         phoneField = new JTextField(20);
         profileContactPanel.add(phoneField);
 
-        profileContactPanel.add(new JLabel("Address:"));
+        profileContactPanel.add(new JLabel("Alamat:"));
         addressField = new JTextField(20);
         profileContactPanel.add(addressField);
 
@@ -70,25 +82,25 @@ public class CVGuiEnhanced extends JFrame {
         skillsPanel = new JPanel(new GridLayout(0, 1));
 
         // Add Buttons for adding entries
-        addEducationButton = new JButton("Add Education");
-        addAchievementButton = new JButton("Add Achievement");
-        addOrgButton = new JButton("Add Org. Exp.");
-        addInternshipButton = new JButton("Add Internship");
-        addSkillButton = new JButton("Add Skill");
+        addEducationButton = new JButton("Tambahkan Riwayat Pendidikan");
+        addSkillButton = new JButton("Tambahkan Keahlian");
+        addInternshipButton = new JButton("Tambahkan Pengalaman Bekerja/Magang");
+        addAchievementButton = new JButton("Tambahkan Prestasi");
+        addOrgButton = new JButton("Tambahkan Riwayat Organisasi");
 
         // Action Listeners
         addEducationButton.addActionListener(e -> addEducationEntry());
+        addSkillButton.addActionListener(e -> addSkillEntry());
+        addInternshipButton.addActionListener(e -> addInternshipEntry());
         addAchievementButton.addActionListener(e -> addAchievementEntry());
         addOrgButton.addActionListener(e -> addOrgEntry());
-        addInternshipButton.addActionListener(e -> addInternshipEntry());
-        addSkillButton.addActionListener(e -> addSkillEntry());
 
         // Add panels and buttons to inputPanel
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
-        inputPanel.add(new JLabel("Education"), gbc);
+        inputPanel.add(new JLabel("Pendidikan"), gbc);
 
         gbc.gridx = 1;
         inputPanel.add(educationPanel, gbc);
@@ -97,31 +109,22 @@ public class CVGuiEnhanced extends JFrame {
         gbc.gridy = 2;
         inputPanel.add(addEducationButton, gbc);
 
+        // Skill
         gbc.gridx = 0;
-        gbc.gridy = 3;
-        inputPanel.add(new JLabel("Achievements"), gbc);
+        gbc.gridy = 9;
+        inputPanel.add(new JLabel("Keahlian"), gbc);
 
         gbc.gridx = 1;
-        inputPanel.add(achievementPanel, gbc);
+        inputPanel.add(skillsPanel, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy = 4;
-        inputPanel.add(addAchievementButton, gbc);
+        gbc.gridy = 10;
+        inputPanel.add(addSkillButton, gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        inputPanel.add(new JLabel("Organizational Experience"), gbc);
-
-        gbc.gridx = 1;
-        inputPanel.add(orgPanel, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 6;
-        inputPanel.add(addOrgButton, gbc);
-
+        // Intern
         gbc.gridx = 0;
         gbc.gridy = 7;
-        inputPanel.add(new JLabel("Internships"), gbc);
+        inputPanel.add(new JLabel("Pengalaman Bekerja/Magang"), gbc);
 
         gbc.gridx = 1;
         inputPanel.add(internshipPanel, gbc);
@@ -130,16 +133,29 @@ public class CVGuiEnhanced extends JFrame {
         gbc.gridy = 8;
         inputPanel.add(addInternshipButton, gbc);
 
+        // Achiev
         gbc.gridx = 0;
-        gbc.gridy = 9;
-        inputPanel.add(new JLabel("Skills"), gbc);
+        gbc.gridy = 3;
+        inputPanel.add(new JLabel("Prestasi"), gbc);
 
         gbc.gridx = 1;
-        inputPanel.add(skillsPanel, gbc);
+        inputPanel.add(achievementPanel, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy = 10;
-        inputPanel.add(addSkillButton, gbc);
+        gbc.gridy = 4;
+        inputPanel.add(addAchievementButton, gbc);
+
+        // Org
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        inputPanel.add(new JLabel("Pengalaman Organisasi"), gbc);
+
+        gbc.gridx = 1;
+        inputPanel.add(orgPanel, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        inputPanel.add(addOrgButton, gbc);
 
         JButton generateCvButton = new JButton("Generate CV");
         generateCvButton.addActionListener(e -> generateCV());
@@ -154,6 +170,22 @@ public class CVGuiEnhanced extends JFrame {
         educationPanel.add(eduInputPanel);
         educationPanel.revalidate();
         educationPanel.repaint();
+    }
+
+    private void addSkillEntry() {
+        SkillInputPanel skillInputPanel = new SkillInputPanel();
+        skillInputPanels.add(skillInputPanel);
+        skillsPanel.add(skillInputPanel);
+        skillsPanel.revalidate();
+        skillsPanel.repaint();
+    }
+
+    private void addInternshipEntry() {
+        InternshipInputPanel internshipInputPanel = new InternshipInputPanel();
+        internshipInputPanels.add(internshipInputPanel);
+        internshipPanel.add(internshipInputPanel);
+        internshipPanel.revalidate();
+        internshipPanel.repaint();
     }
 
     private void addAchievementEntry() {
@@ -172,22 +204,6 @@ public class CVGuiEnhanced extends JFrame {
         orgPanel.repaint();
     }
 
-    private void addInternshipEntry() {
-        InternshipInputPanel internshipInputPanel = new InternshipInputPanel();
-        internshipInputPanels.add(internshipInputPanel);
-        internshipPanel.add(internshipInputPanel);
-        internshipPanel.revalidate();
-        internshipPanel.repaint();
-    }
-
-    private void addSkillEntry() {
-        SkillInputPanel skillInputPanel = new SkillInputPanel();
-        skillInputPanels.add(skillInputPanel);
-        skillsPanel.add(skillInputPanel);
-        skillsPanel.revalidate();
-        skillsPanel.repaint();
-    }
-
     private void generateCV() {
         // Get data from fields
         String name = nameField.getText();
@@ -196,6 +212,32 @@ public class CVGuiEnhanced extends JFrame {
         String email = emailField.getText();
         String phone = phoneField.getText();
         String address = addressField.getText();
+
+        // Validate required fields
+        if (name.isEmpty() || title.isEmpty() || summary.isEmpty() || email.isEmpty() || phone.isEmpty()
+                || address.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Semua data (Nama, Profesi, Ringkasan singkat diri anda, Email, Nomor HP, Alamat) harus diisi.",
+                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Validate phone number as integer
+        try {
+            Integer.parseInt(phone);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Nomor HP harus berupa angka.", "Validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Validate email format
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@gmail\\.com$";
+        if (!email.matches(emailRegex)) {
+            JOptionPane.showMessageDialog(this, "Email harus berformat valid (contoh: nama@gmail.com).",
+                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         Profile profile = new Profile(name, title, summary);
         Contact contact = new Contact(email, phone, address);
@@ -225,9 +267,9 @@ public class CVGuiEnhanced extends JFrame {
             }
         }
 
-        List<Internshipp> internships = new ArrayList<>();
+        List<Internship> internships = new ArrayList<>();
         for (InternshipInputPanel panel : internshipInputPanels) {
-            Internshipp internship = panel.getInternship();
+            Internship internship = panel.getInternship();
             if (internship != null) {
                 internships.add(internship);
             }
@@ -250,30 +292,50 @@ public class CVGuiEnhanced extends JFrame {
 
         // Generate CV output
         StringBuilder cvContent = new StringBuilder();
-        cvContent.append("=== CURRICULUM VITAE ===\n\n");
-        cvContent.append(profile).append("\n");
-        cvContent.append(contact).append("\n\n");
-        cvContent.append(educationSection.getSectionTitle()).append("\n");
-        cvContent.append(educationSection.getFormattedContent()).append("\n");
-        cvContent.append(achievementSection.getSectionTitle()).append("\n");
-        cvContent.append(achievementSection.getFormattedContent()).append("\n");
-        cvContent.append(organizationSection.getSectionTitle()).append("\n");
-        cvContent.append(organizationSection.getFormattedContent()).append("\n");
-        cvContent.append(internshipSection.getSectionTitle()).append("\n");
-        cvContent.append(internshipSection.getFormattedContent()).append("\n");
-        cvContent.append(skillSection.getSectionTitle()).append("\n");
-        cvContent.append(skillSection.getFormattedContent()).append("\n");
+        cvContent.append(name).append("\n"); // Nama
+        cvContent.append(title).append("\n"); // Gelar/Title
+        cvContent.append("Contact:\n"); // Judul Contact
+        cvContent.append("Email: ").append(email).append("\n");
+        cvContent.append("Phone: ").append(phone).append("\n");
+        cvContent.append("Address: ").append(address).append("\n\n");
+        cvContent.append("Profil\n"); // Judul Ringkasan Diri
+        cvContent.append(summary).append("\n\n");
 
-        // Buka frame baru untuk output CV
+        if (!educations.isEmpty()) {
+            cvContent.append(educationSection.getSectionTitle()).append("\n");
+            cvContent.append(educationSection.getFormattedContent()).append("\n");
+        }
+
+        if (!achievements.isEmpty()) {
+            cvContent.append(achievementSection.getSectionTitle()).append("\n");
+            cvContent.append(achievementSection.getFormattedContent()).append("\n");
+        }
+
+        if (!orgs.isEmpty()) {
+            cvContent.append(organizationSection.getSectionTitle()).append("\n");
+            cvContent.append(organizationSection.getFormattedContent()).append("\n");
+        }
+
+        if (!internships.isEmpty()) {
+            cvContent.append(internshipSection.getSectionTitle()).append("\n");
+            cvContent.append(internshipSection.getFormattedContent()).append("\n");
+        }
+
+        if (!skills.isEmpty()) {
+            cvContent.append(skillSection.getSectionTitle()).append("\n");
+            cvContent.append(skillSection.getFormattedContent()).append("\n");
+        }
+
+        // Open a new frame for CV output
         SwingUtilities.invokeLater(() -> {
             JFrame outputFrame = new JFrame("CV Output");
-            outputFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Tutup frame output saja
+            outputFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Close only the output frame
             JTextArea outputTextArea = new JTextArea(cvContent.toString());
             outputTextArea.setEditable(false);
             JScrollPane outputScrollPane = new JScrollPane(outputTextArea);
             outputFrame.getContentPane().add(outputScrollPane);
-            outputFrame.setSize(600, 800); // Atur ukuran sesuai kebutuhan
-            outputFrame.setLocationRelativeTo(this); // Tampilkan di tengah frame utama
+            outputFrame.setSize(600, 800); // Adjust size as needed
+            outputFrame.setLocationRelativeTo(this); // Center the frame relative to the main frame
             outputFrame.setVisible(true);
         });
     }
@@ -281,149 +343,161 @@ public class CVGuiEnhanced extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(CVGuiEnhanced::new);
     }
-}
 
-// Input Panels (Separate Classes for better organization)
+    // Input Panels (Separate Classes for better organization)
 
-class EducationInputPanel extends JPanel {
-    private JTextField degreeField = new JTextField(15);
-    private JTextField institutionField = new JTextField(15);
-    private JTextField startYearField = new JTextField(5);
-    private JTextField endYearField = new JTextField(5);
+    class EducationInputPanel extends JPanel {
+        private JTextField degreeField = new JTextField(15);
+        private JTextField institutionField = new JTextField(15);
+        private JTextField startYearField = new JTextField(5);
+        private JTextField endYearField = new JTextField(5);
 
-    public EducationInputPanel() {
-        setLayout(new FlowLayout(FlowLayout.LEFT));
-        add(new JLabel("Degree:"));
-        add(degreeField);
-        add(new JLabel("Institution:"));
-        add(institutionField);
-        add(new JLabel("Start Year:"));
-        add(startYearField);
-        add(new JLabel("End Year:"));
-        add(endYearField);
-    }
-
-    public Education getEducation() {
-        String degree = degreeField.getText();
-        String institution = institutionField.getText();
-        String startYear = startYearField.getText();
-        String endYear = endYearField.getText();
-        if (degree.isEmpty() || institution.isEmpty() || startYear.isEmpty() || endYear.isEmpty()) {
-            return null; // or show an error message
+        public EducationInputPanel() {
+            setLayout(new FlowLayout(FlowLayout.LEFT));
+            add(new JLabel("Gelar:"));
+            add(degreeField);
+            add(new JLabel("Institusi:"));
+            add(institutionField);
+            add(new JLabel("Tahun Mulai:"));
+            add(startYearField);
+            add(new JLabel("Tahun Selesai:"));
+            add(endYearField);
         }
-        return new Education(degree, institution, startYear, endYear);
-    }
-}
 
-class AchievementInputPanel extends JPanel {
-    private JTextField titleField = new JTextField(15);
-    private JTextField descriptionField = new JTextField(20);
-    private JTextField yearField = new JTextField(5);
-
-    public AchievementInputPanel() {
-        setLayout(new FlowLayout(FlowLayout.LEFT));
-        add(new JLabel("Title:"));
-        add(titleField);
-        add(new JLabel("Description:"));
-        add(descriptionField);
-        add(new JLabel("Year:"));
-        add(yearField);
-    }
-
-    public Achievement getAchievement() {
-        String title = titleField.getText();
-        String description = descriptionField.getText();
-        String year = yearField.getText();
-        if (title.isEmpty() || description.isEmpty() || year.isEmpty()) {
-            return null;
+        public Education getEducation() {
+            String degree = degreeField.getText();
+            String institution = institutionField.getText();
+            String startYear = startYearField.getText();
+            String endYear = endYearField.getText();
+            if (degree.isEmpty() || institution.isEmpty() || startYear.isEmpty() || endYear.isEmpty()) {
+                return null; // or show an error message
+            }
+            if (Integer.parseInt(startYear) >= Integer.parseInt(endYear)) {
+                JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+                        "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            return new Education(degree, institution, startYear, endYear);
         }
-        return new Achievement(title, description, year);
-    }
-}
-
-class OrgInputPanel extends JPanel {
-    private JTextField roleField = new JTextField(10);
-    private JTextField orgNameField = new JTextField(10);
-    private JTextField startDateField = new JTextField(5);
-    private JTextField endDateField = new JTextField(5);
-    private JTextField descriptionField = new JTextField(20);
-
-    public OrgInputPanel() {
-        setLayout(new FlowLayout(FlowLayout.LEFT));
-        add(new JLabel("Role:"));
-        add(roleField);
-        add(new JLabel("Organization:"));
-        add(orgNameField);
-        add(new JLabel("Start Date:"));
-        add(startDateField);
-        add(new JLabel("End Date:"));
-        add(endDateField);
-        add(new JLabel("Description:"));
-        add(descriptionField);
     }
 
-    public OrganizationExperience getOrg() {
-        String role = roleField.getText();
-        String orgName = orgNameField.getText();
-        String startDate = startDateField.getText();
-        String endDate = endDateField.getText();
-        String description = descriptionField.getText();
-        if (role.isEmpty() || orgName.isEmpty() || startDate.isEmpty() || endDate.isEmpty() || description.isEmpty()) {
-            return null;
+    class AchievementInputPanel extends JPanel {
+        private JTextField titleField = new JTextField(15);
+        private JTextField descriptionField = new JTextField(20);
+        private JTextField yearField = new JTextField(5);
+
+        public AchievementInputPanel() {
+            setLayout(new FlowLayout(FlowLayout.LEFT));
+            add(new JLabel("Judul:"));
+            add(titleField);
+            add(new JLabel("Deskripsi:"));
+            add(descriptionField);
+            add(new JLabel("Tahun:"));
+            add(yearField);
         }
-        return new OrganizationExperience(role, orgName, startDate, endDate, description);
-    }
-}
 
-class InternshipInputPanel extends JPanel {
-    private JTextField companyField = new JTextField(10);
-    private JTextField positionField = new JTextField(10);
-    private JTextField startDateField = new JTextField(5);
-    private JTextField endDateField = new JTextField(5);
-    private JTextField responsibilitiesField = new JTextField(20);
-
-    public InternshipInputPanel() {
-        setLayout(new FlowLayout(FlowLayout.LEFT));
-        add(new JLabel("Company:"));
-        add(companyField);
-        add(new JLabel("Position:"));
-        add(positionField);
-        add(new JLabel("Start Date:"));
-        add(startDateField);
-        add(new JLabel("End Date:"));
-        add(endDateField);
-        add(new JLabel("Responsibilities:"));
-        add(responsibilitiesField);
-    }
-
-    public Internshipp getInternship() {
-        String company = companyField.getText();
-        String position = positionField.getText();
-        String startDate = startDateField.getText();
-        String endDate = endDateField.getText();
-        String responsibilities = responsibilitiesField.getText();
-        if (company.isEmpty() || position.isEmpty() || startDate.isEmpty() || endDate.isEmpty() || responsibilities.isEmpty()) {
-            return null;
+        public Achievement getAchievement() {
+            String title = titleField.getText();
+            String description = descriptionField.getText();
+            String year = yearField.getText();
+            if (title.isEmpty() || description.isEmpty() || year.isEmpty()) {
+                return null;
+            }
+            return new Achievement(title, description, year);
         }
-        return new Internshipp(company, position, startDate, endDate, responsibilities);
-    }
-}
-
-class SkillInputPanel extends JPanel {
-    private JTextField skillNameField = new JTextField(15); // Lebihkan sedikit ukurannya
-
-    public SkillInputPanel() {
-        setLayout(new FlowLayout(FlowLayout.LEFT));
-        add(new JLabel("Skill:"));
-        add(skillNameField);
-        // Input level dihapus
     }
 
-    public Skills getSkill() {
-        String skillName = skillNameField.getText();
-        if (skillName.isEmpty()) {
-            return null;
+    class OrgInputPanel extends JPanel {
+        private JTextField roleField = new JTextField(10);
+        private JTextField orgNameField = new JTextField(10);
+        private JTextField startDateField = new JTextField(5);
+        private JTextField endDateField = new JTextField(5);
+        private JTextField descriptionField = new JTextField(20);
+
+        public OrgInputPanel() {
+            setLayout(new FlowLayout(FlowLayout.LEFT));
+            add(new JLabel("Jabatan:"));
+            add(roleField);
+            add(new JLabel("Organisasi:"));
+            add(orgNameField);
+            add(new JLabel("Tahun Mulai:"));
+            add(startDateField);
+            add(new JLabel("Tahun Selesai:"));
+            add(endDateField);
+            add(new JLabel("Deskripsi:"));
+            add(descriptionField);
         }
-        return new Skills(skillName, ""); // Level dikosongkan
+
+        public OrganizationExperience getOrg() {
+            String role = roleField.getText();
+            String orgName = orgNameField.getText();
+            String startDate = startDateField.getText();
+            String endDate = endDateField.getText();
+            String description = descriptionField.getText();
+            if (role.isEmpty() || orgName.isEmpty() || startDate.isEmpty() || endDate.isEmpty()
+                    || description.isEmpty()) {
+                return null;
+            }
+            if (Integer.parseInt(startDate) >= Integer.parseInt(endDate)) {
+                JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+                        "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            return new OrganizationExperience(role, orgName, startDate, endDate, description);
+        }
+    }
+
+    class InternshipInputPanel extends JPanel {
+        private JTextField companyField = new JTextField(10);
+        private JTextField positionField = new JTextField(10);
+        private JTextField startDateField = new JTextField(5);
+        private JTextField endDateField = new JTextField(5);
+        private JTextField responsibilitiesField = new JTextField(20);
+
+        public InternshipInputPanel() {
+            setLayout(new FlowLayout(FlowLayout.LEFT));
+            add(new JLabel("Perusahaan:"));
+            add(companyField);
+            add(new JLabel("Jabatan:"));
+            add(positionField);
+            add(new JLabel("Tahun Mulai:"));
+            add(startDateField);
+            add(new JLabel("Tahun Selesai:"));
+            add(endDateField);
+            add(new JLabel("Tanggung Jawab:"));
+            add(responsibilitiesField);
+        }
+
+        public Internship getInternship() {
+            String company = companyField.getText();
+            String position = positionField.getText();
+            String startDate = startDateField.getText();
+            String endDate = endDateField.getText();
+            String responsibilities = responsibilitiesField.getText();
+            if (company.isEmpty() || position.isEmpty() || startDate.isEmpty() || endDate.isEmpty()
+                    || responsibilities.isEmpty()) {
+                return null;
+            }
+            return new Internship(company, position, startDate, endDate, responsibilities);
+        }
+    }
+
+    class SkillInputPanel extends JPanel {
+        private JTextField skillNameField = new JTextField(15); // Lebihkan sedikit ukurannya
+
+        public SkillInputPanel() {
+            setLayout(new FlowLayout(FlowLayout.LEFT));
+            add(new JLabel("Keahlian:"));
+            add(skillNameField);
+            // Input level dihapus
+        }
+
+        public Skills getSkill() {
+            String skillName = skillNameField.getText();
+            if (skillName.isEmpty()) {
+                return null;
+            }
+            return new Skills(skillName, ""); // Level dikosongkan
+        }
     }
 }

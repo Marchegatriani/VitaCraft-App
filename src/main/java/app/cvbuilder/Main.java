@@ -64,7 +64,7 @@ public class Main {
             String position = InputHelper.getString("Posisi: ");
             String start = InputHelper.getString("Tanggal/Tahun mulai: ");
             String end = InputHelper.getString("Tanggal/Tahun selesai: ");
-            String responsibilities = InputHelper.getString("Responsibilities: ");
+            String responsibilities = InputHelper.getString("Tanggung Jawab: ");
             internships.add(new Internship(company, position, start, end, responsibilities));
         }
 
