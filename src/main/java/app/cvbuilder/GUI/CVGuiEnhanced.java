@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,7 @@ import app.cvbuilder.model.SkillsSection;
 
 public class CVGuiEnhanced extends JFrame {
 
-    private JTextField nameField, titleField, summaryField, emailField, phoneField, addressField;
+    private JTextField nameField, summaryField, emailField, phoneField, addressField;
     private JPanel educationPanel, achievementPanel, orgPanel, internshipPanel, skillsPanel;
     private JButton addEducationButton, addAchievementButton, addOrgButton, addInternshipButton, addSkillButton;
 
@@ -53,10 +52,6 @@ public class CVGuiEnhanced extends JFrame {
         profileContactPanel.add(new JLabel("Nama: "));
         nameField = new JTextField(20);
         profileContactPanel.add(nameField);
-
-        profileContactPanel.add(new JLabel("Gelar: "));
-        titleField = new JTextField(20);
-        profileContactPanel.add(titleField);
 
         profileContactPanel.add(new JLabel("Ringkasan singkat diri anda: "));
         summaryField = new JTextField(20);
@@ -207,17 +202,16 @@ public class CVGuiEnhanced extends JFrame {
     private void generateCV() {
         // Get data from fields
         String name = nameField.getText();
-        String title = titleField.getText();
         String summary = summaryField.getText();
         String email = emailField.getText();
         String phone = phoneField.getText();
         String address = addressField.getText();
 
         // Validate required fields
-        if (name.isEmpty() || title.isEmpty() || summary.isEmpty() || email.isEmpty() || phone.isEmpty()
+        if (name.isEmpty() || summary.isEmpty() || email.isEmpty() || phone.isEmpty()
                 || address.isEmpty()) {
             JOptionPane.showMessageDialog(this,
-                    "Semua data (Nama, Profesi, Ringkasan singkat diri anda, Email, Nomor HP, Alamat) harus diisi.",
+                    "Semua data (Nama, Ringkasan singkat diri anda, Email, Nomor HP, Alamat) harus diisi.",
                     "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -238,9 +232,6 @@ public class CVGuiEnhanced extends JFrame {
                     "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        Profile profile = new Profile(name, summary);
-        Contact contact = new Contact(email, phone, address);
 
         // Get data from input panels
         List<Education> educations = new ArrayList<>();
@@ -290,17 +281,30 @@ public class CVGuiEnhanced extends JFrame {
         CVSection internshipSection = new InternshipSection(internships);
         CVSection skillSection = new SkillsSection(skills);
 
-        // Generate CV output
+        // Generate CV output with enhanced formatting
         StringBuilder cvContent = new StringBuilder();
-        cvContent.append(name).append("\n"); // Nama
-        cvContent.append(title).append("\n"); // Gelar/Title
-        cvContent.append("Contact:\n"); // Judul Contact
-        cvContent.append("Email: ").append(email).append("\n");
-        cvContent.append("Phone: ").append(phone).append("\n");
-        cvContent.append("Address: ").append(address).append("\n\n");
-        cvContent.append("Profil\n"); // Judul Ringkasan Diri
+        
+        // Format header according to image style - centered
+        String nameUpper = name.toUpperCase();
+        int screenWidth = 60; // Assuming a reasonable screen width
+        
+        // Center the name
+        int nameSpaces = (screenWidth - nameUpper.length()) / 2;
+        String nameIndent = " ".repeat(Math.max(0, nameSpaces));
+        cvContent.append(String.format("%s%s%n", nameIndent, nameUpper));
+        
+        // Center the contact info
+        String contactInfo = String.format("%s | +%s | %s", email, phone, address);
+        int contactSpaces = (screenWidth - contactInfo.length()) / 2;
+        String contactIndent = " ".repeat(Math.max(0, contactSpaces));
+        cvContent.append(String.format("%s%s%n%n", contactIndent, contactInfo));
+        
+        // Add horizontal line for PROFIL section
+        cvContent.append("PROFIL\n");
+        cvContent.append("------------------------------------------------------------\n");
         cvContent.append(summary).append("\n\n");
-
+        
+        // Other sections remain the same
         if (!educations.isEmpty()) {
             cvContent.append(educationSection.getSectionTitle()).append("\n");
             cvContent.append(educationSection.getFormattedContent()).append("\n");
@@ -347,6 +351,10 @@ public class CVGuiEnhanced extends JFrame {
     // Input Panels (Separate Classes for better organization)
 
     class EducationInputPanel extends JPanel {
+<<<<<<< HEAD
+=======
+        private JTextField ipkField = new JTextField(15);
+>>>>>>> 1a9c8761c0ef7aaa769a7666b2eaaa8f0f8df99d
         private JTextField institutionField = new JTextField(15);
         private JTextField majorField = new JTextField(15);
         private JTextField ipkField = new JTextField(5);
@@ -355,6 +363,11 @@ public class CVGuiEnhanced extends JFrame {
 
         public EducationInputPanel() {
             setLayout(new FlowLayout(FlowLayout.LEFT));
+<<<<<<< HEAD
+=======
+            add(new JLabel("IPK:"));
+            add(ipkField);
+>>>>>>> 1a9c8761c0ef7aaa769a7666b2eaaa8f0f8df99d
             add(new JLabel("Institusi:"));
             add(institutionField);
             add(new JLabel("Jurusan:"));
@@ -368,20 +381,58 @@ public class CVGuiEnhanced extends JFrame {
         }
 
         public Education getEducation() {
+<<<<<<< HEAD
+=======
+            String ipkText = ipkField.getText();
+>>>>>>> 1a9c8761c0ef7aaa769a7666b2eaaa8f0f8df99d
             String institution = institutionField.getText();
             String major = majorField.getText();
             double ipk = ipkField.get;
             String startYear = startYearField.getText();
             String endYear = endYearField.getText();
+<<<<<<< HEAD
             if (major.isEmpty() || institution.isEmpty() || startYear.isEmpty() || endYear.isEmpty()) {
                 return null; // or show an error message
+=======
+            
+            if (ipkText.isEmpty() || institution.isEmpty() || startYear.isEmpty() || endYear.isEmpty()) {
+                return null; // Incomplete data
+>>>>>>> 1a9c8761c0ef7aaa769a7666b2eaaa8f0f8df99d
             }
-            if (Integer.parseInt(startYear) >= Integer.parseInt(endYear)) {
-                JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+            
+            // Validate IPK as double
+            double ipk;
+            try {
+                ipk = Double.parseDouble(ipkText);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "IPK harus berupa angka desimal (contoh: 3.5).",
                         "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
+<<<<<<< HEAD
             return new Education(ipk, institution, major, startYear, endYear);
+=======
+            
+            // Validate year format and range
+            try {
+                int startYearVal = Integer.parseInt(startYear);
+                int endYearVal = Integer.parseInt(endYear);
+                
+                if (startYearVal >= endYearVal) {
+                    JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+                            "Validation Error", JOptionPane.ERROR_MESSAGE);
+                    return null;
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka.",
+                        "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            
+            // We assume that Education class has been updated to accept double for IPK
+            // If this is not the case, you'll need to update the Education class as well
+            return new Education(String.valueOf(ipk), institution, startYear, endYear);
+>>>>>>> 1a9c8761c0ef7aaa769a7666b2eaaa8f0f8df99d
         }
     }
 
@@ -442,11 +493,22 @@ public class CVGuiEnhanced extends JFrame {
                     || description.isEmpty()) {
                 return null;
             }
-            if (Integer.parseInt(startDate) >= Integer.parseInt(endDate)) {
-                JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+            
+            try {
+                int startYear = Integer.parseInt(startDate);
+                int endYear = Integer.parseInt(endDate);
+                
+                if (startYear >= endYear) {
+                    JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+                            "Validation Error", JOptionPane.ERROR_MESSAGE);
+                    return null;
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka.",
                         "Validation Error", JOptionPane.ERROR_MESSAGE);
                 return null;
             }
+            
             return new OrganizationExperience(role, orgName, startDate, endDate, description);
         }
     }
@@ -482,6 +544,22 @@ public class CVGuiEnhanced extends JFrame {
                     || responsibilities.isEmpty()) {
                 return null;
             }
+            
+            try {
+                int startYear = Integer.parseInt(startDate);
+                int endYear = Integer.parseInt(endDate);
+                
+                if (startYear >= endYear) {
+                    JOptionPane.showMessageDialog(this, "Tahun Mulai harus lebih kecil dari Tahun Selesai.",
+                            "Validation Error", JOptionPane.ERROR_MESSAGE);
+                    return null;
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Tahun harus berupa angka.",
+                        "Validation Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+            
             return new Internship(company, position, startDate, endDate, responsibilities);
         }
     }

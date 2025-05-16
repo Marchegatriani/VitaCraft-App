@@ -17,6 +17,8 @@ VitaCraft adalah aplikasi berbasis Java yang dirancang untuk menyederhanakan pem
 ## 🗂️ Struktur Proyek
 
 Proyek VitaCraft diorganisasikan ke dalam komponen-komponen berikut:
+* Paket `GUI`:
+    * `CVGUIEnhanced.java`:Memberikan Tampilan dalam bentuk aplikasi untuk memudahkan pengguna Menginput Data dan Melihat Output CV
 
 * Paket `model`:
     * `Achievement.java`: Merepresentasikan sebuah prestasi dengan judul, deskripsi, dan tahun.
@@ -119,8 +121,6 @@ Berikut adalah pembagian tugas anggota tim dalam proyek ini:
 
 Fitur-fitur berikut akan dikerjakan secara kolaboratif oleh seluruh anggota tim:
 
-* **Pdf export**: Implementasi fitur untuk mengekspor CV ke format PDF.
-* **Cv builder**: Logika inti untuk mengumpulkan data dari berbagai bagian dan menyusunnya menjadi format CV yang lengkap.
 * **GUI**: Pengembangan antarmuka pengguna grafis untuk input data dan menampilkan hasil CV.
 
 
