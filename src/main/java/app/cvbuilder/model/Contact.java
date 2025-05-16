@@ -2,6 +2,7 @@ package app.cvbuilder.model;
 
 public class Contact {
     private String email;
+
     public String getEmail() {
         return email;
     }
@@ -11,6 +12,7 @@ public class Contact {
     }
 
     private String phone;
+
     public String getPhone() {
         return phone;
     }

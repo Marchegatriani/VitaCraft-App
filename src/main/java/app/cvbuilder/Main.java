@@ -1,19 +1,18 @@
 package app.cvbuilder;
 
-import app.cvbuilder.model.Profile;
+import app.cvbuilder.model.Achievement;
+import app.cvbuilder.model.AchievementSection;
+import app.cvbuilder.model.CVSection;
 import app.cvbuilder.model.Contact;
 import app.cvbuilder.model.Education;
 import app.cvbuilder.model.EducationSection;
-import app.cvbuilder.model.OrganizationExperience;
-import app.cvbuilder.model.OrganizationSection;
-import app.cvbuilder.model.Achievement;
-import app.cvbuilder.model.AchievementSection;
 import app.cvbuilder.model.Internship;
 import app.cvbuilder.model.InternshipSection;
+import app.cvbuilder.model.OrganizationExperience;
+import app.cvbuilder.model.OrganizationSection;
+import app.cvbuilder.model.Profile;
 import app.cvbuilder.model.Skills;
 import app.cvbuilder.model.SkillsSection;
-import app.cvbuilder.model.CVSection;
-
 import app.util.InputHelper;
 
 import java.util.ArrayList;
@@ -52,7 +51,7 @@ public class Main {
         for (int i = 0; i < sklCount; i++) {
             System.out.println("Skills #" + (i + 1));
             String skillName = InputHelper.getString("Keahlian: ");
-            String level = InputHelper.getString("Tingkatan/Level: ");
+            String level = InputHelper.getString("Masukkan: ");
             skills.add(new Skills(skillName, level));
         }
 
@@ -65,7 +64,7 @@ public class Main {
             String position = InputHelper.getString("Posisi: ");
             String start = InputHelper.getString("Tanggal/Tahun mulai: ");
             String end = InputHelper.getString("Tanggal/Tahun selesai: ");
-            String responsibilities = InputHelper.getString("Responsibilities: ");
+            String responsibilities = InputHelper.getString("Tanggung Jawab: ");
             internships.add(new Internship(company, position, start, end, responsibilities));
         }
 
@@ -101,9 +100,10 @@ public class Main {
         CVSection organizationSection = new OrganizationSection(orgs);
 
         // Tampilkan CV
-        System.out.println("\n=== CURRICULLUM VITAE ===\n");
-        System.out.println(profile);
+        System.out.println("\n" + profile.getName() + "\n");
+        System.out.println(profile.getTitle());
         System.out.println(contact + "\n");
+        System.out.println(profile.getSummary());
 
         if (!educations.isEmpty()) {
             System.out.println(educationSection.getSectionTitle());
@@ -129,5 +129,6 @@ public class Main {
             System.out.println(organizationSection.getSectionTitle());
             System.out.println(organizationSection.getFormattedContent());
         }
+
     }
 }

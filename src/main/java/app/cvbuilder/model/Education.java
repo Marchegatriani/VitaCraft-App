@@ -20,7 +20,7 @@ public class Education extends CVEntry {
 
     @Override
     public String formatForDisplay() {
-        return degree + " | " + institution + " " + super.formatForDisplay();
+        return degree + institution + "(" + getStart() + " - " + getEnd() + ")";
     }
 
     @Override
